@@ -28,6 +28,10 @@ public class Controller {
         return current_statement.execute(current_program_state);
     }
 
+    public void test(){
+
+    }
+
     public void executeAllSteps() {
         ProgramState state = this.repository.getCurrentProgram();
         while (!state.getExecutionStack().empty()) {
