@@ -1,15 +1,15 @@
 import Controller.Controller;
-import Model.Exceptions.DataStructureEmpty;
 import Model.Exceptions.DivideByZero;
 import Model.Exceptions.InvalidOperator;
 import Model.Exceptions.VariableNotDeclared;
 import Model.DataStructure.MyDictionary;
 import Model.DataStructure.MyList;
 import Model.DataStructure.MyStack;
-import Model.Expression.ArithmeticExpression;
-import Model.Expression.ConstantExpression;
-import Model.Expression.Expression;
-import Model.Expression.VariableExpression;
+import Model.Expression.*;
+import Model.File.CloseReadFileStatement;
+import Model.File.OpenReadFileStatement;
+import Model.File.ReadFileStatement;
+import Model.Statement.NewStatement;
 import Model.ProgramState;
 import Model.Statement.*;
 import Repository.IRepository;
@@ -18,16 +18,71 @@ import View.ExitCommand;
 import View.RunCommand;
 import View.TextMenu;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class Main {
+    private static void clearFiles() {
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("log1.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log2.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log3.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log4.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log5.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log6.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log7.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log8.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log9.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log10.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log11.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log12.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log13.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log14.txt");
+            writer.print("");
+            writer.close();
+            writer = new PrintWriter("log15.txt");
+            writer.print("");
+            writer.close();
+        } catch (FileNotFoundException ignored) {}
+    }
+
     public static void main(String args[]) {
         TestDataStructures();
         TestExpressions();
 
+        clearFiles();
 
         IStatement exercise1 = new CompoundStatement(new AssignmentStatement("v", new ConstantExpression(2)),
                 new PrintStatement(new VariableExpression("v")));
         ProgramState programState1 = new ProgramState(exercise1);
-        IRepository repository1 = new Repository(programState1);
+        IRepository repository1 = new Repository(programState1, "log1.txt");
         Controller controller1 = new Controller(repository1);
 
         IStatement exercise2 =
@@ -54,7 +109,7 @@ public class Main {
 
 
         ProgramState programState2 = new ProgramState(exercise2);
-        IRepository repository2 = new Repository(programState2);
+        IRepository repository2 = new Repository(programState2, "log2.txt");
         Controller controller2 = new Controller(repository2);
 
         IStatement exercise3 =
@@ -77,16 +132,222 @@ public class Main {
                                 new PrintStatement(new VariableExpression("v"))));
 
         ProgramState programState3 = new ProgramState(exercise3);
-        IRepository repository3 = new Repository(programState3);
+        IRepository repository3 = new Repository(programState3, "log3.txt");
         Controller controller3 = new Controller(repository3);
 
+        IStatement exercise4 =
+                new CompoundStatement(
+                        new OpenReadFileStatement(
+                                "var_f",
+                                "test.in"),
+                        new CompoundStatement(
+                                new ReadFileStatement(
+                                        new VariableExpression("var_f"),
+                                        "var_c"),
+                                new CompoundStatement(
+                                        new PrintStatement(
+                                                new VariableExpression("var_c")),
+                                        new CompoundStatement(
+                                                new IfStatement(
+                                                        new VariableExpression("var_c"),
+                                                        new CompoundStatement(
+                                                                new ReadFileStatement(
+                                                                        new VariableExpression("var_f"),
+                                                                        "var_c"),
+                                                                new PrintStatement(
+                                                                        new VariableExpression("var_c"))),
+                                                        new PrintStatement(
+                                                                new ConstantExpression(0))),
+                                                new CloseReadFileStatement(
+                                                        new VariableExpression("var_f"))))));
+        ProgramState programState4 = new ProgramState(exercise4);
+        IRepository repository4 = new Repository(programState4, "log4.txt");
+        Controller controller4 = new Controller(repository4);
+
+
+//        openRFile(var_f,"test.in");
+//        readFile(var_f+2,var_c);print(var_c);
+//        (if var_c then readFile(var_f,var_c);print(var_c)
+//else print(0));
+//        closeRFile(var_f)
+        IStatement exercise5 =
+                new CompoundStatement(
+                        new OpenReadFileStatement(
+                                "var_f",
+                                "test.in"),
+                        new CompoundStatement(
+                                new ReadFileStatement(
+                                        new ArithmeticExpression(
+                                                new VariableExpression("var_f"),
+                                                "+",
+                                                new ConstantExpression(2)),
+                                        "var_c"),
+                                new CompoundStatement(
+                                        new PrintStatement(new VariableExpression("var_c")),
+                                        new CompoundStatement(
+                                                new IfStatement(
+                                                        new VariableExpression("var_c"),
+                                                        new CompoundStatement(
+                                                                new ReadFileStatement(
+                                                                        new VariableExpression("var_f"),
+                                                                        "var_c"),
+                                                                new PrintStatement(
+                                                                        new VariableExpression("var_c"))),
+                                                        new PrintStatement(
+                                                                new ConstantExpression(0))),
+                                                new CloseReadFileStatement(
+                                                        new VariableExpression("var_f"))))));
+        ProgramState programState5 = new ProgramState(exercise5);
+        IRepository repository5 = new Repository(programState5, "log5.txt");
+        Controller controller5 = new Controller(repository5);
+
+        IStatement exercise6 =
+                new CompoundStatement(
+                        new AssignmentStatement(
+                                "v",
+                                new ConstantExpression(10)),
+                        new CompoundStatement(
+                                new NewStatement(
+                                        "v",
+                                        new ConstantExpression(20)),
+                                new CompoundStatement(
+                                        new NewStatement(
+                                                "a",
+                                                new ConstantExpression(22)),
+                                        new PrintStatement(
+                                                new VariableExpression("v")))));
+        ProgramState programState6 = new ProgramState(exercise6);
+        IRepository repository6 = new Repository(programState6, "log6.txt");
+        Controller controller6 = new Controller(repository6);
+
+        IStatement exercise7 =
+                new CompoundStatement(
+                        new AssignmentStatement(
+                                "v",
+                                new ConstantExpression(10)),
+                        new CompoundStatement(
+                                new NewStatement(
+                                        "v",
+                                        new ConstantExpression(20)),
+                                new CompoundStatement(
+                                        new NewStatement(
+                                                "a",
+                                                new ConstantExpression(22)),
+                                        new CompoundStatement(
+                                                new PrintStatement(
+                                                        new ArithmeticExpression(
+                                                                new ConstantExpression(100),
+                                                                "+",
+                                                                new ReadHeapExpression("v"))),
+                                                new PrintStatement(
+                                                        new ArithmeticExpression(
+                                                                new ConstantExpression(100),
+                                                                "+",
+                                                                new ReadHeapExpression("a")))))));
+        ProgramState programState7 = new ProgramState(exercise7);
+        IRepository repository7 = new Repository(programState7, "log7.txt");
+        Controller controller7 = new Controller(repository7);
+
+        IStatement exercise8 =
+                new CompoundStatement(
+                        new AssignmentStatement(
+                                "v",
+                                new ConstantExpression(10)),
+                        new CompoundStatement(
+                                new NewStatement(
+                                        "v",
+                                        new ConstantExpression(20)),
+                                new CompoundStatement(
+                                        new NewStatement(
+                                                "a",
+                                                new ConstantExpression(20)),
+                                        new CompoundStatement(
+                                                new WriteStatement("a", new ConstantExpression(30)),
+                                        new CompoundStatement(new PrintStatement(new VariableExpression("a")),
+                                                new PrintStatement(new ReadHeapExpression("a")))))));
+        ProgramState programState8 = new ProgramState(exercise8);
+        IRepository repository8 = new Repository(programState8, "log8.txt");
+        Controller controller8 = new Controller(repository8);
+
+        IStatement exercise9 = new CompoundStatement(new AssignmentStatement("v", new ConstantExpression(10)),
+                new CompoundStatement(new NewStatement("v", new ConstantExpression(20)),
+                        new CompoundStatement(new NewStatement("a", new ConstantExpression(20)),
+                                new CompoundStatement(new WriteStatement("a", new ConstantExpression(30)),
+                                        new CompoundStatement(new PrintStatement(new VariableExpression("a")),
+                                                new CompoundStatement(new PrintStatement(new ReadHeapExpression("a")),
+                                                        new AssignmentStatement("a", new ConstantExpression(0))))))));
+        ProgramState programState9 = new ProgramState(exercise9);
+        IRepository repository9 = new Repository(programState9, "log9.txt");
+        Controller controller9 = new Controller(repository9);
+
+        IStatement exercise10 =
+                new PrintStatement(
+                        new ArithmeticExpression(
+                                new ConstantExpression(10),
+                                "+",
+                                new BooleanExpression(
+                                        new ConstantExpression(2),
+                                        "<",
+                                        new ConstantExpression(6))));
+        ProgramState programState10 = new ProgramState(exercise10);
+        IRepository repository10 = new Repository(programState10, "log10.txt");
+        Controller controller10 = new Controller(repository10);
+
+
+        IStatement exercise11 =
+                new PrintStatement(
+                        new BooleanExpression(
+                                new ArithmeticExpression(
+                                        new ConstantExpression(10),
+                                        "+",
+                                        new ConstantExpression(2)),
+                                "<",
+                                new ConstantExpression(6)));
+        ProgramState programState11 = new ProgramState(exercise11);
+        IRepository repository11 = new Repository(programState11, "log11.txt");
+        Controller controller11 = new Controller(repository11);
+
+        IStatement exercise12 =
+                new CompoundStatement(
+                        new AssignmentStatement(
+                                "v",
+                                new ConstantExpression(6)),
+                        new CompoundStatement(
+                                new WhileStatement(
+                                        new ArithmeticExpression(
+                                                new VariableExpression("v"),
+                                                "-",
+                                                new ConstantExpression(4)),
+                                        new CompoundStatement(
+                                                new PrintStatement(
+                                                        new VariableExpression("v")),
+                                                new AssignmentStatement(
+                                                        "v",
+                                                        new ArithmeticExpression(
+                                                                new VariableExpression("v"),
+                                                                "-",
+                                                                new ConstantExpression(1)
+                                                                )))),
+                                new PrintStatement(
+                                        new VariableExpression("v"))));
+        ProgramState programState12 = new ProgramState(exercise12);
+        IRepository repository12 = new Repository(programState12, "log12.txt");
+        Controller controller12 = new Controller(repository12);
 
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "exit"));
         menu.addCommand(new RunCommand("1", exercise1.toString(), controller1));
         menu.addCommand(new RunCommand("2", exercise2.toString(), controller2));
         menu.addCommand(new RunCommand("3", exercise3.toString(), controller3));
-
+        menu.addCommand(new RunCommand("4", exercise4.toString(), controller4));
+        menu.addCommand(new RunCommand("5", exercise5.toString(), controller5));
+        menu.addCommand(new RunCommand("6", exercise6.toString(), controller6));
+        menu.addCommand(new RunCommand("7", exercise7.toString(), controller7));
+        menu.addCommand(new RunCommand("8", exercise8.toString(), controller8));
+        menu.addCommand(new RunCommand("9", exercise9.toString(), controller9));
+        menu.addCommand(new RunCommand("10", exercise10.toString(), controller10));
+        menu.addCommand(new RunCommand("11", exercise11.toString(), controller11));
+        menu.addCommand(new RunCommand("12", exercise12.toString(), controller12));
         menu.show();
     }
 
@@ -94,15 +355,14 @@ public class Main {
         Expression exp;
         try {
             exp = new ArithmeticExpression(new ConstantExpression(2), "+", new ConstantExpression(3));
-            System.out.println(exp.evaluate(new MyDictionary<>()));
-            System.out.println(exp);
+            assert (exp.evaluate(new MyDictionary<>(), new MyDictionary<>()) == 5);
         } catch (DivideByZero | InvalidOperator | VariableNotDeclared divideByZero) {
             divideByZero.printStackTrace();
         }
 
         try {
             exp = new ConstantExpression(7);
-            System.out.println(exp.evaluate(new MyDictionary<>()));
+            assert (exp.evaluate(new MyDictionary<>(), new MyDictionary<>()) == 7);
         } catch (DivideByZero | InvalidOperator | VariableNotDeclared divideByZero) {
             divideByZero.printStackTrace();
         }
@@ -111,8 +371,7 @@ public class Main {
             exp = new VariableExpression("a");
             MyDictionary<String, Integer> symbolTable = new MyDictionary<>();
             symbolTable.put("b", 123);
-            System.out.println(exp.evaluate(symbolTable));
-            System.out.println(exp);
+            System.out.println(exp.evaluate(symbolTable, new MyDictionary<>()));
         } catch (DivideByZero | InvalidOperator | VariableNotDeclared ignored) {
 
         }
@@ -124,17 +383,9 @@ public class Main {
         stk.push(2);
         stk.push(3);
         stk.push(4);
-        System.out.println(stk.peek());
-        System.out.println(stk);
-        while (!stk.empty()) {
-            try {
-                stk.pop();
-            } catch (DataStructureEmpty ignored) { }
-            System.out.println(stk);
-        }
+        assert(stk.peek() == 4);
 
         MyList<Integer> list = new MyList<>();
-        System.out.println(list);
         list.add(1);
         list.add(4);
         list.add(2);

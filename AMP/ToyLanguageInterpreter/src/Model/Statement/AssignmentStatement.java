@@ -19,8 +19,9 @@ public class AssignmentStatement implements IStatement{
     @Override
     public ProgramState execute(ProgramState current_state) {
         IDictionary<String, Integer> symbolTable = current_state.getSymbolTable();
+        IDictionary<Integer, Integer> heapTable = current_state.getHeapTable();
         try {
-            symbolTable.put(variable, expression.evaluate(symbolTable));
+            symbolTable.put(variable, expression.evaluate(symbolTable, heapTable));
         } catch (DivideByZero | VariableNotDeclared | InvalidOperator divideByZero) {
             divideByZero.printStackTrace();
         }

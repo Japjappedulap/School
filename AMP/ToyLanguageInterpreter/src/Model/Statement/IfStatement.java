@@ -1,5 +1,6 @@
 package Model.Statement;
 
+import Model.DataStructure.IDictionary;
 import Model.DataStructure.IStack;
 import Model.Exceptions.ToyLanguageException;
 import Model.Expression.Expression;
@@ -19,10 +20,13 @@ public class IfStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState current_state) {
         IStack<IStatement> stack = current_state.getExecutionStack();
+
+        IDictionary<String, Integer> symbolTable = current_state.getSymbolTable();
+        IDictionary<Integer, Integer> heapTable = current_state.getHeapTable();
         int value = 0;
 
         try {
-            value = expression.evaluate(current_state.getSymbolTable());
+            value = expression.evaluate(symbolTable, heapTable);
         } catch (ToyLanguageException exception) {
             exception.printStackTrace();
         }

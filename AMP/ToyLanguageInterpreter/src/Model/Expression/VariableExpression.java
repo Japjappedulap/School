@@ -13,7 +13,7 @@ public class VariableExpression extends Expression {
     }
 
     @Override
-    public int evaluate(IDictionary<String, Integer> symbolTable) throws DivideByZero, InvalidOperator, VariableNotDeclared {
+    public int evaluate(IDictionary<String, Integer> symbolTable, IDictionary<Integer, Integer> heapTable) throws DivideByZero, InvalidOperator, VariableNotDeclared {
         if (!symbolTable.containsKey(variable))
             throw new VariableNotDeclared(this.toString());
         return symbolTable.get(this.variable);

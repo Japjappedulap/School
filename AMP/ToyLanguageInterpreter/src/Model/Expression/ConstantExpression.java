@@ -12,7 +12,7 @@ public class ConstantExpression extends Expression {
     }
 
     @Override
-    public int evaluate(IDictionary<String, Integer> symbolTable) throws DivideByZero, InvalidOperator {
+    public int evaluate(IDictionary<String, Integer> symbolTable, IDictionary<Integer, Integer> heapTable) throws DivideByZero, InvalidOperator {
         return this.constant;
     }
 

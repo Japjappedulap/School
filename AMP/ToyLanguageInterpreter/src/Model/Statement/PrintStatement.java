@@ -18,7 +18,7 @@ public class PrintStatement implements IStatement {
     public ProgramState execute(ProgramState current_state) {
         IList<Integer> out = current_state.getOutputList();
         try {
-            out.add(expression.evaluate(current_state.getSymbolTable()));
+            out.add(expression.evaluate(current_state.getSymbolTable(), current_state.getHeapTable()));
         } catch (DivideByZero | VariableNotDeclared | InvalidOperator divideByZero) {
             divideByZero.printStackTrace();
         }
