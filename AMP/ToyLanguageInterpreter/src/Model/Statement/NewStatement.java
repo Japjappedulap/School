@@ -5,9 +5,8 @@ import Model.Exceptions.DataStructureEmpty;
 import Model.Exceptions.ToyLanguageException;
 import Model.Expression.Expression;
 import Model.ProgramState;
-import Model.Statement.IStatement;
 
-public class NewStatement implements IStatement{
+public class NewStatement implements IStatement {
     private String variable_name;
     private Expression expression;
 

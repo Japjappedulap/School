@@ -1,15 +1,14 @@
 import Controller.Controller;
-import Model.Exceptions.DivideByZero;
-import Model.Exceptions.InvalidOperator;
-import Model.Exceptions.VariableNotDeclared;
 import Model.DataStructure.MyDictionary;
 import Model.DataStructure.MyList;
 import Model.DataStructure.MyStack;
+import Model.Exceptions.DivideByZero;
+import Model.Exceptions.InvalidOperator;
+import Model.Exceptions.VariableNotDeclared;
 import Model.Expression.*;
 import Model.File.CloseReadFileStatement;
 import Model.File.OpenReadFileStatement;
 import Model.File.ReadFileStatement;
-import Model.Statement.NewStatement;
 import Model.ProgramState;
 import Model.Statement.*;
 import Repository.IRepository;
@@ -25,7 +24,7 @@ import java.util.List;
 
 public class Main {
     private static void clearFiles() {
-        PrintWriter writer = null;
+        PrintWriter writer;
         try {
             writer = new PrintWriter("log1.txt");
             writer.print("");
@@ -72,13 +71,13 @@ public class Main {
             writer = new PrintWriter("log15.txt");
             writer.print("");
             writer.close();
-        } catch (FileNotFoundException ignored) {}
+        } catch (FileNotFoundException ignored) {
+        }
     }
 
     public static void main(String args[]) {
         TestDataStructures();
         TestExpressions();
-
 
 
         clearFiles();
@@ -288,8 +287,8 @@ public class Main {
                                                 new ConstantExpression(20)),
                                         new CompoundStatement(
                                                 new WriteStatement("a", new ConstantExpression(30)),
-                                        new CompoundStatement(new PrintStatement(new VariableExpression("a")),
-                                                new PrintStatement(new ReadHeapExpression("a")))))));
+                                                new CompoundStatement(new PrintStatement(new VariableExpression("a")),
+                                                        new PrintStatement(new ReadHeapExpression("a")))))));
         List<ProgramState> programState8 = new ArrayList<>();
         programState8.add(new ProgramState(exercise8));
         IRepository repository8 = new Repository(programState8, "log8.txt");
@@ -356,7 +355,7 @@ public class Main {
                                                                 new VariableExpression("v"),
                                                                 "-",
                                                                 new ConstantExpression(1)
-                                                                )))),
+                                                        )))),
                                 new PrintStatement(
                                         new VariableExpression("v"))));
         List<ProgramState> programState12 = new ArrayList<>();
@@ -456,7 +455,7 @@ public class Main {
         stk.push(2);
         stk.push(3);
         stk.push(4);
-        assert(stk.peek() == 4);
+        assert (stk.peek() == 4);
 
         MyList<Integer> list = new MyList<>();
         list.add(1);

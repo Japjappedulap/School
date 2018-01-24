@@ -12,9 +12,9 @@ import java.io.FileReader;
 import java.util.Set;
 
 public class OpenReadFileStatement implements IStatement {
+    private static Integer unique = 1;
     private String var_id;
     private String fileName;
-    private static Integer unique = 1;
 
     public OpenReadFileStatement(String var_id, String fileName) {
         this.var_id = var_id;
@@ -32,10 +32,9 @@ public class OpenReadFileStatement implements IStatement {
         FilePair filePair = new FilePair(this.fileName, bufferedReader);
         IDictionary<Integer, FilePair> fileTable = current_state.getFileTable();
         Set<Integer> allFileTableKeys = fileTable.keySet();
-        for(Integer i : allFileTableKeys){
+        for (Integer i : allFileTableKeys) {
             FilePair f = fileTable.get(i);
-            if(fileName.equals(f.getFileName()))
-            {
+            if (fileName.equals(f.getFileName())) {
                 throw new FileAlreadyOpened(this.toString());
             }
         }
@@ -48,7 +47,7 @@ public class OpenReadFileStatement implements IStatement {
     }
 
     @Override
-    public String toString(){
-        return "openRFile(" + this.var_id + ", \"" + this.fileName+ "\")";
+    public String toString() {
+        return "openRFile(" + this.var_id + ", \"" + this.fileName + "\")";
     }
 }

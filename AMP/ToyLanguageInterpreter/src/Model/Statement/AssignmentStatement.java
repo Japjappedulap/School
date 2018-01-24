@@ -1,13 +1,13 @@
 package Model.Statement;
 
+import Model.DataStructure.IDictionary;
 import Model.Exceptions.DivideByZero;
 import Model.Exceptions.InvalidOperator;
 import Model.Exceptions.VariableNotDeclared;
-import Model.DataStructure.IDictionary;
 import Model.Expression.Expression;
 import Model.ProgramState;
 
-public class AssignmentStatement implements IStatement{
+public class AssignmentStatement implements IStatement {
     private String variable;
     private Expression expression;
 

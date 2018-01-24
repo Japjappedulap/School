@@ -1,9 +1,9 @@
 package Model.Statement;
 
+import Model.DataStructure.IList;
 import Model.Exceptions.DivideByZero;
 import Model.Exceptions.InvalidOperator;
 import Model.Exceptions.VariableNotDeclared;
-import Model.DataStructure.IList;
 import Model.Expression.Expression;
 import Model.ProgramState;
 

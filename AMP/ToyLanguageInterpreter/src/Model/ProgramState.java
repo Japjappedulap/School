@@ -4,7 +4,6 @@ import Model.DataStructure.*;
 import Model.Exceptions.DataStructureEmpty;
 import Model.Exceptions.ToyLanguageException;
 import Model.File.FilePair;
-import Model.DataStructure.HeapAddressBuilder;
 import Model.Statement.IStatement;
 
 public class ProgramState {
@@ -35,7 +34,7 @@ public class ProgramState {
                         IDictionary<Integer, FilePair> fileTable,
                         IDictionary<Integer, Integer> heapTable,
                         int thread_id
-                        ) {
+    ) {
         this.initialProgram = initialProgram;
         this.executionStack = executionStack;
         this.symbolTable = symbolTable;
@@ -47,7 +46,7 @@ public class ProgramState {
         this.executionStack.push(this.initialProgram);
     }
 
-    public int getThreadID () {
+    public int getThreadID() {
         return this.thread_id;
     }
 
@@ -132,7 +131,7 @@ public class ProgramState {
 
     public String toString() {
         return String.format(
-                        "                 ****   ExecutionStack  = {" + this.executionStack.toString() + "}\n" +
+                "                 ****   ExecutionStack  = {" + this.executionStack.toString() + "}\n" +
                         "                 ****   SymbolTable     = {" + this.symbolTable.toString() + "}\n" +
                         "Thread ID: %5d ****   OutputList      = {" + this.outputList.toString() + "}\n" +
                         "                 ****   FileTable       = {" + this.fileTable.toString() + "}\n" +

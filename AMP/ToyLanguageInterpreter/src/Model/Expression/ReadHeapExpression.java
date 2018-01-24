@@ -1,12 +1,9 @@
 package Model.Expression;
 
 import Model.DataStructure.IDictionary;
-import Model.Exceptions.DivideByZero;
-import Model.Exceptions.InvalidOperator;
 import Model.Exceptions.VariableNotDeclared;
-import Model.Expression.Expression;
 
-public class ReadHeapExpression extends Expression{
+public class ReadHeapExpression extends Expression {
     private String variable_name;
 
     public ReadHeapExpression(String variable_name) {
@@ -22,7 +19,7 @@ public class ReadHeapExpression extends Expression{
     }
 
     @Override
-    public int evaluate(IDictionary<String, Integer> symbolTable, IDictionary<Integer, Integer> heapTable) throws DivideByZero, InvalidOperator, VariableNotDeclared {
+    public int evaluate(IDictionary<String, Integer> symbolTable, IDictionary<Integer, Integer> heapTable) throws VariableNotDeclared {
         if (!symbolTable.containsKey(this.variable_name))
             throw new VariableNotDeclared(this.variable_name);
         Integer address = symbolTable.get(this.variable_name);

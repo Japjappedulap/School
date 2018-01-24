@@ -1,9 +1,9 @@
 package Model.Expression;
 
+import Model.DataStructure.IDictionary;
 import Model.Exceptions.DivideByZero;
 import Model.Exceptions.InvalidOperator;
 import Model.Exceptions.VariableNotDeclared;
-import Model.DataStructure.IDictionary;
 
 public class ArithmeticExpression extends Expression {
     private Expression left, right;

@@ -53,7 +53,7 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
     public String toString() {
         StringBuilder print = new StringBuilder();
 
-        for(HashMap.Entry<K, V> e : map.entrySet())
+        for (HashMap.Entry<K, V> e : map.entrySet())
             print.append(e.getKey().toString()).append(" -> ").append(e.getValue().toString()).append(" ; ");
 
         print.setLength(max(print.length() - 3, 0));
@@ -81,17 +81,17 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
     }
 
     @Override
-    public void setContent(Set <Map.Entry <K, V> > set) {
+    public void setContent(Set<Map.Entry<K, V>> set) {
         this.map.clear();
-        for (Map.Entry<K,V> entry : set) {
+        for (Map.Entry<K, V> entry : set) {
             this.put(entry.getKey(), entry.getValue());
         }
     }
 
     @Override
     public K getKey(V value) {
-        for(K key : this.map.keySet()) {
-            if(this.map.get(key).equals(value))
+        for (K key : this.map.keySet()) {
+            if (this.map.get(key).equals(value))
                 return key;
         }
         return null;
@@ -100,7 +100,7 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
     @Override
     public IDictionary<K, V> clone_dict() {
         IDictionary<K, V> clone_map = new MyDictionary<>();
-        for(K key : this.keySet())
+        for (K key : this.keySet())
             clone_map.put(key, this.map.get(key));
         return clone_map;
     }

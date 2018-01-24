@@ -7,7 +7,10 @@ import java.util.List;
 
 public interface IRepository {
     void LogProgramStateExecution(ProgramState programState) throws IOException;
+
     void LogProgramStatesExecution(List<ProgramState> programStateList);
-    void setProgramStateList(List<ProgramState> programStateList);
+
     List<ProgramState> getProgramStateList();
+
+    void setProgramStateList(List<ProgramState> programStateList);
 }

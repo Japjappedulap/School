@@ -5,13 +5,14 @@ import java.util.List;
 
 import static java.lang.Integer.max;
 
-public class MyList<T> implements IList<T>{
+public class MyList<T> implements IList<T> {
     private List<T> list;
 
     // default ctor
     public MyList() {
         this.list = new ArrayList<>();
     }
+
     public MyList(List<T> list) {
         this.list = list;
     }

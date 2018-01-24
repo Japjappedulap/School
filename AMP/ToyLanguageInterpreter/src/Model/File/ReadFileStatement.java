@@ -25,7 +25,7 @@ public class ReadFileStatement implements IStatement {
         IDictionary<Integer, Integer> heapTable = current_state.getHeapTable();
         Integer unique = this.variable.evaluate(symbolTable, heapTable);
 
-        if(!fileTable.containsKey(unique)){
+        if (!fileTable.containsKey(unique)) {
             throw new FileKeyNotFound(this.toString());
         }
 
@@ -41,12 +41,10 @@ public class ReadFileStatement implements IStatement {
         int value;
         if (line == null) {
             throw new FileReadingException(this.toString());
-        }
-        else
+        } else
             try {
                 value = Integer.parseInt(line);
-            }
-            catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 throw new FileReadingException(this.toString());
             }
         symbolTable.put(variable_name, value);

@@ -7,23 +7,23 @@ import java.util.Scanner;
 public class TextMenu {
     private Map<String, Command> commands;
 
-    public TextMenu(){
+    public TextMenu() {
         commands = new HashMap<>();
     }
 
-    public void addCommand(Command c){
+    public void addCommand(Command c) {
         commands.put(c.getKey(), c);
     }
 
-    private void printMenu(){
-        for(Command com : commands.values()){
+    private void printMenu() {
+        for (Command com : commands.values()) {
             String line = String.format("%4s : %s", com.getKey(), com.getDescription());
             System.out.println(line);
         }
     }
 
-    public void show(){
-        Scanner scanner=new Scanner(System.in);
+    public void show() {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             printMenu();
             System.out.print("Input the option: ");
@@ -32,6 +32,9 @@ public class TextMenu {
             if (com == null) {
                 System.out.println("Invalid Option");
                 continue;
+            }
+            if (key.equals("0")) {
+                break;
             }
             com.execute();
         }

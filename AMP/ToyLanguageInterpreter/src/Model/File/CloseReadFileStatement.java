@@ -9,7 +9,7 @@ import Model.Statement.IStatement;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class CloseReadFileStatement implements IStatement{
+public class CloseReadFileStatement implements IStatement {
     private Expression variable;
 
     public CloseReadFileStatement(Expression variable) {

@@ -5,7 +5,7 @@ import Model.Exceptions.DivideByZero;
 import Model.Exceptions.InvalidOperator;
 import Model.Exceptions.VariableNotDeclared;
 
-public class BooleanExpression extends Expression{
+public class BooleanExpression extends Expression {
     private Expression left, right;
     private String operator;
 
@@ -21,12 +21,18 @@ public class BooleanExpression extends Expression{
         int right_value = this.right.evaluate(symbolTable, heapTable);
 
         switch (this.operator) {
-            case "<": return left_value < right_value ? 1 : 0;
-            case "<=": return left_value <= right_value ? 1 : 0;
-            case "==": return left_value == right_value ? 1 : 0;
-            case "!=": return left_value != right_value ? 1 : 0;
-            case ">=": return left_value >= right_value ? 1 : 0;
-            case ">": return left_value > right_value ? 1 : 0;
+            case "<":
+                return left_value < right_value ? 1 : 0;
+            case "<=":
+                return left_value <= right_value ? 1 : 0;
+            case "==":
+                return left_value == right_value ? 1 : 0;
+            case "!=":
+                return left_value != right_value ? 1 : 0;
+            case ">=":
+                return left_value >= right_value ? 1 : 0;
+            case ">":
+                return left_value > right_value ? 1 : 0;
         }
         throw new InvalidOperator(this.toString());
     }

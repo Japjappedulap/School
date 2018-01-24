@@ -3,7 +3,7 @@ package Model.Statement;
 import Model.DataStructure.IStack;
 import Model.ProgramState;
 
-public class CompoundStatement implements IStatement{
+public class CompoundStatement implements IStatement {
     private IStatement first, second;
 
     public CompoundStatement(IStatement first, IStatement second) {

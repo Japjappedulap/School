@@ -1,7 +1,5 @@
 package Model.Expression;
 
-import Model.Exceptions.DivideByZero;
-import Model.Exceptions.InvalidOperator;
 import Model.DataStructure.IDictionary;
 
 public class ConstantExpression extends Expression {
@@ -12,7 +10,7 @@ public class ConstantExpression extends Expression {
     }
 
     @Override
-    public int evaluate(IDictionary<String, Integer> symbolTable, IDictionary<Integer, Integer> heapTable) throws DivideByZero, InvalidOperator {
+    public int evaluate(IDictionary<String, Integer> symbolTable, IDictionary<Integer, Integer> heapTable) {
         return this.constant;
     }
 

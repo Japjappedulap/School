@@ -13,6 +13,7 @@ public class MyStack<T> implements IStack<T> {
     public MyStack() {
         this.stack = new Stack<>();
     }
+
     // extra ctor
     public MyStack(Stack<T> stack) {
         this.stack = stack;
@@ -40,7 +41,7 @@ public class MyStack<T> implements IStack<T> {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder print = new StringBuilder();
         Stack<T> backup = new Stack<>();
 
@@ -48,7 +49,8 @@ public class MyStack<T> implements IStack<T> {
             print.append(this.stack.peek()).append(" | ");
             try {
                 backup.push(this.pop());
-            } catch (DataStructureEmpty ignored) {}
+            } catch (DataStructureEmpty ignored) {
+            }
 
         }
         while (!backup.empty()) {

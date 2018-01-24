@@ -1,9 +1,7 @@
 package Model.Expression;
 
-import Model.Exceptions.DivideByZero;
-import Model.Exceptions.InvalidOperator;
-import Model.Exceptions.VariableNotDeclared;
 import Model.DataStructure.IDictionary;
+import Model.Exceptions.VariableNotDeclared;
 
 public class VariableExpression extends Expression {
     private String variable;
@@ -13,7 +11,7 @@ public class VariableExpression extends Expression {
     }
 
     @Override
-    public int evaluate(IDictionary<String, Integer> symbolTable, IDictionary<Integer, Integer> heapTable) throws DivideByZero, InvalidOperator, VariableNotDeclared {
+    public int evaluate(IDictionary<String, Integer> symbolTable, IDictionary<Integer, Integer> heapTable) throws VariableNotDeclared {
         if (!symbolTable.containsKey(variable))
             throw new VariableNotDeclared(this.toString());
         return symbolTable.get(this.variable);

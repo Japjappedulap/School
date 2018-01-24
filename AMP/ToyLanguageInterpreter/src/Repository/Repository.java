@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class Repository implements IRepository{
+public class Repository implements IRepository {
     private List<ProgramState> programStateList;
     private String logFilePath;
 
@@ -43,13 +43,12 @@ public class Repository implements IRepository{
         });
     }
 
+    public List<ProgramState> getProgramStateList() {
+        return this.programStateList;
+    }
 
     @Override
     public void setProgramStateList(List<ProgramState> programStateList) {
         this.programStateList = programStateList;
-    }
-
-    public List<ProgramState> getProgramStateList() {
-        return this.programStateList;
     }
 }

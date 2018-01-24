@@ -6,7 +6,7 @@ public class FilePair {
     private String fileName;
     private BufferedReader bufferedReader;
 
-    public FilePair(String fileName, BufferedReader bufferedReader){
+    public FilePair(String fileName, BufferedReader bufferedReader) {
         this.bufferedReader = bufferedReader;
         this.fileName = fileName;
     }

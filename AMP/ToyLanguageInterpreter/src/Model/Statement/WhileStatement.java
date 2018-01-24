@@ -7,7 +7,7 @@ import Model.Exceptions.ToyLanguageException;
 import Model.Expression.Expression;
 import Model.ProgramState;
 
-public class WhileStatement implements IStatement{
+public class WhileStatement implements IStatement {
     private Expression condition;
     private IStatement statement;
 
