@@ -2,6 +2,7 @@ package Model;
 
 import Model.DataStructure.*;
 import Model.Exceptions.DataStructureEmpty;
+import Model.Exceptions.ToyLanguageException;
 import Model.File.FilePair;
 import Model.DataStructure.HeapAddressBuilder;
 import Model.Statement.IStatement;
@@ -14,6 +15,7 @@ public class ProgramState {
     private IDictionary<Integer, FilePair> fileTable;
     private IDictionary<Integer, Integer> heapTable;
     private HeapAddressBuilder heapAddressBuilder = new HeapAddressBuilder();
+    private int thread_id;
 
     public ProgramState(IStatement initialProgram) {
         this.initialProgram = initialProgram;
@@ -22,7 +24,7 @@ public class ProgramState {
         this.outputList = new MyList<>();
         this.fileTable = new MyDictionary<>();
         this.heapTable = new MyDictionary<>();
-
+        this.thread_id = 1;
         this.executionStack.push(this.initialProgram);
     }
 
@@ -31,15 +33,22 @@ public class ProgramState {
                         IDictionary<String, Integer> symbolTable,
                         IList<Integer> outputList,
                         IDictionary<Integer, FilePair> fileTable,
-                        IDictionary<Integer, Integer> heapTable) {
+                        IDictionary<Integer, Integer> heapTable,
+                        int thread_id
+                        ) {
         this.initialProgram = initialProgram;
         this.executionStack = executionStack;
         this.symbolTable = symbolTable;
         this.outputList = outputList;
         this.fileTable = fileTable;
         this.heapTable = heapTable;
+        this.thread_id = thread_id;
 
         this.executionStack.push(this.initialProgram);
+    }
+
+    public int getThreadID () {
+        return this.thread_id;
     }
 
     public IDictionary<String, Integer> getSymbolTable() {
@@ -68,6 +77,10 @@ public class ProgramState {
 
     public boolean finished() {
         return this.executionStack.empty();
+    }
+
+    public boolean isNotCompleted() {
+        return !this.executionStack.empty();
     }
 
     public IList<Integer> getOutputList() {
@@ -110,13 +123,20 @@ public class ProgramState {
         return this.heapAddressBuilder.getFreeAddress();
     }
 
+    public ProgramState oneStep() throws DataStructureEmpty, ToyLanguageException {
+        if (this.executionStack.empty())
+            throw new DataStructureEmpty(this.toString());
+        IStatement current_statement = this.executionStack.pop();
+        return current_statement.execute(this);
+    }
+
     public String toString() {
-        return
-                "**   ExecutionStack  = {" + this.executionStack.toString() + "}\n" +
-                "**   SymbolTable     = {" + this.symbolTable.toString() + "}\n" +
-                "**   OutputList      = {" + this.outputList.toString() + "}\n" +
-                "**   FileTable       = {" + this.fileTable.toString() + "}\n" +
-                "**   HeapTable       = {" + this.heapTable.toString() + "}\n" +
-                "----------------------------------------------------\n";
+        return String.format(
+                        "                 ****   ExecutionStack  = {" + this.executionStack.toString() + "}\n" +
+                        "                 ****   SymbolTable     = {" + this.symbolTable.toString() + "}\n" +
+                        "Thread ID: %5d ****   OutputList      = {" + this.outputList.toString() + "}\n" +
+                        "                 ****   FileTable       = {" + this.fileTable.toString() + "}\n" +
+                        "                 ****   HeapTable       = {" + this.heapTable.toString() + "}\n" +
+                        "----------------------------------------------------\n", this.thread_id);
     }
 }

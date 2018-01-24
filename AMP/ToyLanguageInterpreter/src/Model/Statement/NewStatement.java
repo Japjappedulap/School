@@ -28,7 +28,7 @@ public class NewStatement implements IStatement{
         symbolTable.put(this.variable_name, heapAddress);
         current_state.setSymbolTable(symbolTable);
         current_state.setHeapTable(heapTable);
-        return current_state;
+        return null;
     }
 
     @Override

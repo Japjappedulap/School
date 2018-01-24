@@ -6,23 +6,20 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class Repository implements IRepository{
-    private ProgramState programState;
+    private List<ProgramState> programStateList;
     private String logFilePath;
 
-    public Repository(ProgramState programState) {
-        this.programState = programState;
+    public Repository(List<ProgramState> programStateList) {
+        this.programStateList = programStateList;
         this.logFilePath = "";
     }
 
-    public Repository(ProgramState programState, String logFilePath) {
-        this.programState = programState;
+    public Repository(List<ProgramState> programStateList, String logFilePath) {
+        this.programStateList = programStateList;
         this.logFilePath = logFilePath;
-    }
-    @Override
-    public ProgramState getCurrentProgram() {
-        return this.programState;
     }
 
     @Override
@@ -33,7 +30,26 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public void setCurrentProgram(ProgramState programState) {
-        this.programState = programState;
+    public void LogProgramStatesExecution(List<ProgramState> programStateList) {
+        programStateList.forEach(state -> {
+            PrintWriter logFile;
+            try {
+                logFile = new PrintWriter(new BufferedWriter(new FileWriter(this.logFilePath, true)));
+                logFile.write(state.toString());
+                logFile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+
+    @Override
+    public void setProgramStateList(List<ProgramState> programStateList) {
+        this.programStateList = programStateList;
+    }
+
+    public List<ProgramState> getProgramStateList() {
+        return this.programStateList;
     }
 }

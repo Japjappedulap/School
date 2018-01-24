@@ -32,7 +32,7 @@ public class IfStatement implements IStatement {
         }
         if (value != 0) stack.push(this.thenStatement);
         else stack.push(this.elseStatement);
-        return current_state;
+        return null;
     }
 
     @Override

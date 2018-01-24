@@ -29,7 +29,7 @@ public class WhileStatement implements IStatement{
             current_state.setExecutionStack(executionStack);
             this.statement.execute(current_state);
         }
-        return current_state;
+        return null;
     }
 
     @Override

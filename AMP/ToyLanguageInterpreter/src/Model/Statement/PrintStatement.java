@@ -19,10 +19,10 @@ public class PrintStatement implements IStatement {
         IList<Integer> out = current_state.getOutputList();
         try {
             out.add(expression.evaluate(current_state.getSymbolTable(), current_state.getHeapTable()));
-        } catch (DivideByZero | VariableNotDeclared | InvalidOperator divideByZero) {
-            divideByZero.printStackTrace();
+        } catch (DivideByZero | VariableNotDeclared | InvalidOperator e) {
+            System.err.println(e.getMessage());
         }
-        return current_state;
+        return null;
     }
 
     @Override

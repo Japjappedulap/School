@@ -25,7 +25,7 @@ public class AssignmentStatement implements IStatement{
         } catch (DivideByZero | VariableNotDeclared | InvalidOperator divideByZero) {
             divideByZero.printStackTrace();
         }
-        return current_state;
+        return null;
     }
 
     @Override

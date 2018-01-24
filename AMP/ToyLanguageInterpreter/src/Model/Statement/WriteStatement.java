@@ -30,7 +30,7 @@ public class WriteStatement implements IStatement{
 
         heapTable.put(address, expression.evaluate(symbolTable, heapTable));
         current_state.setHeapTable(heapTable);
-        return current_state;
+        return null;
     }
 
     @Override

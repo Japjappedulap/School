@@ -37,7 +37,7 @@ public class CloseReadFileStatement implements IStatement{
         }
 
         fileTable.remove(unique);
-        return current_state;
+        return null;
     }
 
     @Override

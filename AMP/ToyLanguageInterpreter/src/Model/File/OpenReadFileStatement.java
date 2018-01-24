@@ -44,7 +44,7 @@ public class OpenReadFileStatement implements IStatement {
         symbolTable.put(var_id, unique);
         unique += 1;
 
-        return current_state;
+        return null;
     }
 
     @Override
