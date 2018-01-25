@@ -1,5 +1,6 @@
 package sample;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,15 +11,30 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        FXMLLoader mainLoader = new FXMLLoader();
+        mainLoader.setLocation(getClass().getResource("runForm.fxml"));
+        Parent mainWindow = mainLoader.load();
+
+        RunFormController mainWindowController = mainLoader.getController();
+
+        primaryStage.setTitle("Main Window");
+        primaryStage.setScene(new Scene(mainWindow, 620, 600));
         primaryStage.show();
+
+
+        FXMLLoader secondaryLoader = new FXMLLoader();
+        secondaryLoader.setLocation(getClass().getResource("selectForm.fxml"));
+        Parent secondaryWindow = secondaryLoader.load();
+
+        SelectFormController selectWindowController = secondaryLoader.getController();
+        selectWindowController.setMainWindowController(mainWindowController);
+
+        Stage secondaryStage = new Stage();
+        secondaryStage.setTitle("Select Window");
+        secondaryStage.setScene(new Scene(secondaryWindow, 500, 550));
+        secondaryStage.show();
     }
 
-    public void asd(){
-
-    }
 
     public static void main(String[] args) {
         launch(args);

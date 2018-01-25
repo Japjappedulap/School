@@ -1,49 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89a17cae-07c1-4115-8aa4-fdd9353bd7d5" name="Default" comment="Done Assignment 6 and refactored, preparing for lab 8">
-      <change beforePath="" afterPath="$PROJECT_DIR$/test.in" />
+    <list default="true" id="89a17cae-07c1-4115-8aa4-fdd9353bd7d5" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Controller/Controller.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/DataStructure/HeapAddressBuilder.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/DataStructure/IDictionary.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/DataStructure/IList.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/DataStructure/IStack.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/DataStructure/MyDictionary.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/DataStructure/MyList.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/DataStructure/MyStack.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/DataStructureEmpty.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/DivideByZero.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/FileAlreadyOpened.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/FileClosingException.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/FileKeyNotFound.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/FileNotFound.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/FileReadingException.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/InvalidOperator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/ToyLanguageException.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Exceptions/VariableNotDeclared.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Expression/ArithmeticExpression.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Expression/BooleanExpression.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Expression/ConstantExpression.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Expression/Expression.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Expression/ReadHeapExpression.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Expression/VariableExpression.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/File/CloseReadFileStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/File/FilePair.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/File/OpenReadFileStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/File/ReadFileStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/ProgramState.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Statement/AssignmentStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Statement/CompoundStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Statement/ForkStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Statement/IStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Statement/IfStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Statement/NewStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Statement/PrintStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Statement/WhileStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Model/Statement/WriteStatement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Repository/IRepository.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/Repository/Repository.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/View/Command.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/View/ExitCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/View/RunCommand.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/View/TextMenu.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/sample/RunFormController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/sample/SelectFormController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/sample/runForm.fxml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/sample/selectForm.fxml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DataStructure/HeapAddressBuilder.java" afterPath="$PROJECT_DIR$/src/Model/DataStructure/HeapAddressBuilder.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DataStructure/IDictionary.java" afterPath="$PROJECT_DIR$/src/Model/DataStructure/IDictionary.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DataStructure/IList.java" afterPath="$PROJECT_DIR$/src/Model/DataStructure/IList.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DataStructure/IStack.java" afterPath="$PROJECT_DIR$/src/Model/DataStructure/IStack.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DataStructure/MyDictionary.java" afterPath="$PROJECT_DIR$/src/Model/DataStructure/MyDictionary.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DataStructure/MyList.java" afterPath="$PROJECT_DIR$/src/Model/DataStructure/MyList.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DataStructure/MyStack.java" afterPath="$PROJECT_DIR$/src/Model/DataStructure/MyStack.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Exceptions/FileAlreadyOpened.java" afterPath="$PROJECT_DIR$/src/Model/Exceptions/FileAlreadyOpened.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Exceptions/FileClosingException.java" afterPath="$PROJECT_DIR$/src/Model/Exceptions/FileClosingException.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Exceptions/FileKeyNotFound.java" afterPath="$PROJECT_DIR$/src/Model/Exceptions/FileKeyNotFound.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Exceptions/FileNotFound.java" afterPath="$PROJECT_DIR$/src/Model/Exceptions/FileNotFound.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Exceptions/FileReadingException.java" afterPath="$PROJECT_DIR$/src/Model/Exceptions/FileReadingException.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Exceptions/VariableNotDeclared.java" afterPath="$PROJECT_DIR$/src/Model/Exceptions/VariableNotDeclared.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Expression/ArithmeticExpression.java" afterPath="$PROJECT_DIR$/src/Model/Expression/ArithmeticExpression.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Expression/BooleanExpression.java" afterPath="$PROJECT_DIR$/src/Model/Expression/BooleanExpression.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Expression/ConstantExpression.java" afterPath="$PROJECT_DIR$/src/Model/Expression/ConstantExpression.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Expression/Expression.java" afterPath="$PROJECT_DIR$/src/Model/Expression/Expression.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Expression/ReadHeapExpression.java" afterPath="$PROJECT_DIR$/src/Model/Expression/ReadHeapExpression.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Expression/VariableExpression.java" afterPath="$PROJECT_DIR$/src/Model/Expression/VariableExpression.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/File/CloseReadFileStatement.java" afterPath="$PROJECT_DIR$/src/Model/File/CloseReadFileStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/File/FilePair.java" afterPath="$PROJECT_DIR$/src/Model/File/FilePair.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/File/OpenReadFileStatement.java" afterPath="$PROJECT_DIR$/src/Model/File/OpenReadFileStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/File/ReadFileStatement.java" afterPath="$PROJECT_DIR$/src/Model/File/ReadFileStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ProgramState.java" afterPath="$PROJECT_DIR$/src/Model/ProgramState.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Statement/AssignmentStatement.java" afterPath="$PROJECT_DIR$/src/Model/Statement/AssignmentStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Statement/CompoundStatement.java" afterPath="$PROJECT_DIR$/src/Model/Statement/CompoundStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Statement/ForkStatement.java" afterPath="$PROJECT_DIR$/src/Model/Statement/ForkStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Statement/IStatement.java" afterPath="$PROJECT_DIR$/src/Model/Statement/IStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Statement/NewStatement.java" afterPath="$PROJECT_DIR$/src/Model/Statement/NewStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Statement/PrintStatement.java" afterPath="$PROJECT_DIR$/src/Model/Statement/PrintStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Statement/WhileStatement.java" afterPath="$PROJECT_DIR$/src/Model/Statement/WhileStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Statement/WriteStatement.java" afterPath="$PROJECT_DIR$/src/Model/Statement/WriteStatement.java" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/IRepository.java" afterPath="$PROJECT_DIR$/src/Repository/IRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Repository.java" afterPath="$PROJECT_DIR$/src/Repository/Repository.java" />
-      <change beforePath="$PROJECT_DIR$/src/View/Command.java" afterPath="$PROJECT_DIR$/src/View/Command.java" />
-      <change beforePath="$PROJECT_DIR$/src/View/ExitCommand.java" afterPath="$PROJECT_DIR$/src/View/ExitCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/View/RunCommand.java" afterPath="$PROJECT_DIR$/src/View/RunCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/View/TextMenu.java" afterPath="$PROJECT_DIR$/src/View/TextMenu.java" />
+      <change beforePath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/sample/Controller.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/sample/Main.java" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/sample/Main.java" />
+      <change beforePath="$PROJECT_DIR$/../ToyLanguageInterpreterFX/src/sample/sample.fxml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,21 +70,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MyDictionary.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/DataStructure/MyDictionary.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
                 <element signature="e#1432#1433#0" expanded="true" />
                 <element signature="e#1467#1468#0" expanded="true" />
@@ -108,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Command.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Command.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -173,6 +175,16 @@
                 <element signature="e#743#744#0" expanded="true" />
                 <element signature="e#796#797#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="401" column="74" lean-forward="false" selection-start-line="84" selection-start-column="8" selection-end-line="401" selection-end-column="74" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -258,7 +270,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-4" />
+    <option name="x" value="-1920" />
+    <option name="y" value="-2164" />
     <option name="width" value="1920" />
     <option name="height" value="1084" />
   </component>
@@ -293,6 +306,24 @@
               <item name="ToyLanguageInterpreter" type="b2602c69:ProjectViewProjectNode" />
               <item name="ToyLanguageInterpreter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ToyLanguageInterpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ToyLanguageInterpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ToyLanguageInterpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ToyLanguageInterpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ToyLanguageInterpreter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ToyLanguageInterpreter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -458,7 +489,7 @@
       <workItem from="1516665741131" duration="1938000" />
       <workItem from="1516668102612" duration="3411000" />
       <workItem from="1516671548689" duration="182000" />
-      <workItem from="1516724522942" duration="41225000" />
+      <workItem from="1516724522942" duration="44034000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1516724602492</created>
@@ -481,24 +512,32 @@
       <option name="project" value="LOCAL" />
       <updated>1516833080464</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Done Assignment 6 and refactored, preparing for lab 8">
+      <created>1516835278547</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1516835278547</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61047000" />
+    <option name="totallyTimeSpent" value="63856000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <frame x="-1920" y="-2164" width="1920" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.23210634" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="0" y="1104" width="1920" height="1056" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.23210634" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="-1920" y="-1056" width="1920" height="1056" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.8425358" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="0" y="1104" width="1920" height="1056" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.8425358" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="-1920" y="-1056" width="1920" height="1056" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -891,7 +930,7 @@
         <state relative-caret-position="308">
           <caret line="641" column="0" lean-forward="false" selection-start-line="641" selection-start-column="0" selection-end-line="641" selection-end-column="0" />
           <folding>
-            <element signature="e#26131#26132#0" expanded="true" />
+            <element signature="e#26131#26132#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -976,19 +1015,11 @@
     <entry file="file://$PROJECT_DIR$/src/Model/DataStructure/MyDictionary.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="e#1432#1433#0" expanded="true" />
             <element signature="e#1467#1468#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,7 +1061,15 @@
     <entry file="file://$PROJECT_DIR$/src/View/Command.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="401" column="74" lean-forward="false" selection-start-line="84" selection-start-column="8" selection-end-line="401" selection-end-column="74" />
           <folding />
         </state>
       </provider>
