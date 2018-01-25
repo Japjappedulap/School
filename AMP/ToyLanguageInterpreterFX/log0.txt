@@ -1,0 +1,36 @@
+                 ****   ExecutionStack  = {v = 10; print(v)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {v = 10 | print(v)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {v = 10 | print(v)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v)}
+                 ****   SymbolTable     = {v -> 10}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v)}
+                 ****   SymbolTable     = {v -> 10}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {}
+                 ****   SymbolTable     = {v -> 10}
+Thread ID:     1 ****   OutputList      = {10}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------

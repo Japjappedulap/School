@@ -1,0 +1,150 @@
+                 ****   ExecutionStack  = {v = 100; print(v); fork(v = 7; print(v)); print(3); print(3)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {v = 100 | print(v); fork(v = 7; print(v)); print(3); print(3)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {v = 100 | print(v); fork(v = 7; print(v)); print(3); print(3)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v); fork(v = 7; print(v)); print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v); fork(v = 7; print(v)); print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v) | fork(v = 7; print(v)); print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v) | fork(v = 7; print(v)); print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {fork(v = 7; print(v)); print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {fork(v = 7; print(v)); print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {fork(v = 7; print(v)) | print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {fork(v = 7; print(v)) | print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {v = 7; print(v)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:    10 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(3); print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {v = 7; print(v)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:    10 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(3) | print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {v = 7 | print(v)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:    10 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(3) | print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {v = 7 | print(v)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:    10 ****   OutputList      = {100}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v)}
+                 ****   SymbolTable     = {v -> 7}
+Thread ID:    10 ****   OutputList      = {100, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(3)}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v)}
+                 ****   SymbolTable     = {v -> 7}
+Thread ID:    10 ****   OutputList      = {100, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {}
+                 ****   SymbolTable     = {v -> 100}
+Thread ID:     1 ****   OutputList      = {100, 3, 3, 7}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {}
+                 ****   SymbolTable     = {v -> 7}
+Thread ID:    10 ****   OutputList      = {100, 3, 3, 7}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------

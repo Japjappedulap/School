@@ -122,7 +122,7 @@ public class ProgramState {
         return this.heapAddressBuilder.getFreeAddress();
     }
 
-    public ProgramState oneStep() throws DataStructureEmpty, ToyLanguageException {
+    public ProgramState executeOneStep() throws DataStructureEmpty, ToyLanguageException {
         if (this.executionStack.empty())
             throw new DataStructureEmpty(this.toString());
         IStatement current_statement = this.executionStack.pop();

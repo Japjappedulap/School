@@ -8,10 +8,7 @@ import Model.ProgramState;
 import Repository.IRepository;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -53,128 +50,51 @@ public class Controller {
 
     public void executeOneStep()
     {
-        executor = Executors.newFixedThreadPool(8);
-        removeCompletedPrograms(repository.getProgramStateList());
-        List<ProgramState> programStates = repository.getProgramStateList();
+        executor = Executors.newFixedThreadPool(2);
+        List<ProgramState> programStates = removeCompletedPrograms(repository.getProgramStateList());
+
         if(programStates.size() > 0)
         {
             try {
-                executeOneStepForAllPrograms(repository.getProgramStateList());
+                executeOneStepForAll((ArrayList<ProgramState>)programStates);
             } catch (ToyLanguageException | InterruptedException e) {
                 System.out.println();
             }
-            programStates.forEach(i -> {
-                try {
-                    repository.LogProgramStateExecution(i);
-                } catch (IOException e) {
-                    System.out.println();
-                }
-            });
-            removeCompletedPrograms(repository.getProgramStateList());
             executor.shutdownNow();
         }
+        this.repository.setProgramStateList((ArrayList<ProgramState>) programStates);
     }
 
-    @SuppressWarnings("all")
-    private void executeOneStepForAllPrograms(List<ProgramState> current_program_states) throws ToyLanguageException, InterruptedException {
+
+    public void executeOneStepForAll(ArrayList<ProgramState> current_program_states) throws ToyLanguageException, InterruptedException {
         this.repository.LogProgramStatesExecution(current_program_states);
-//        for (ProgramState state : current_program_states) {
-//            System.out.println(state.toString());
-//        }
 
-        List<Callable<ProgramState>> callList = current_program_states.stream().filter(p -> !p.getExecutionStack().empty())
-                .map((ProgramState program_state) ->
+        List<Callable<ProgramState>> callList =
+                current_program_states.
+                        stream().
+                        map((ProgramState state) -> (Callable <ProgramState>)(state::executeOneStep)).
+                        collect(Collectors.toList());
 
-                                (Callable<ProgramState>) (() -> {
-                                    try {
-                                        return program_state.oneStep();
-                                    } catch (ToyLanguageException e) {
-                                        System.err.println(e.getMessage());
-//                                e.printStackTrace();
-                                        return null;
-                                    }
-                                })
-                ).collect(Collectors.toList());
-
-
-        List<ProgramState> program_states = this.executor.invokeAll(callList).stream()
+        List<ProgramState> new_program_states = this.executor.invokeAll(callList).stream()
                 .map(future -> {
                     try {
                         return future.get();
                     } catch (InterruptedException | ExecutionException e) {
-                        System.out.println("End of program");
+                        throw new ToyLanguageException(e.getMessage());
                     }
-                    return null;
-                }).filter(p -> (p != null)).collect(Collectors.toList());
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
 
-        current_program_states.addAll(program_states);
-        current_program_states.forEach(state -> {
-            state.getHeapTable().setContent(conservativeGarbageCollector(
-                    state.getSymbolTable().values(), state.getHeapTable()));
-        });
-
+        current_program_states.addAll(new_program_states);
         this.repository.setProgramStateList(current_program_states);
+        this.repository.LogProgramStatesExecution(current_program_states);
     }
 
-    public void executeAllSteps() {
-        List<ProgramState> states = this.repository.getProgramStateList();
-        if (states.isEmpty()) {
-            System.out.println("Program already finished");
-            return;
-        }
-        this.executor = Executors.newFixedThreadPool(1);
-
-        states = removeCompletedPrograms(states);
-        try {
-            while (states.size() > 0) {
-                executeOneStepForAllPrograms(states);
-                states = removeCompletedPrograms(states);
-            }
-        } catch (ToyLanguageException | InterruptedException e) {
-            System.err.println(e.getMessage());
-            return;
-        }
-        this.repository.LogProgramStatesExecution(states);
-        executor.shutdownNow();
-        repository.setProgramStateList(states);
-//
-//        List<ProgramState> states = this.repository.getProgramStateList();
-//        if (states.isEmpty()) {
-//            System.out.println("Program already finished");
-//            return;
-//        }
-//        try {
-//            while (!(states.size() > 0)) {
-//                executeOneStepForAllPrograms(states);
-//                states = removeCompletedPrograms();
-//            }
-//            System.out.println("Terminated successfully");
-//        } catch (DataStructureEmpty | IOException | ToyLanguageException e) {
-//            System.err.println(e.getMessage());
-//        }
-//
-//        for (ProgramState i : this.repository.getProgramStateList()) {
-//            try {
-//                closeAllFiles(i.getFileTable().keySet(), i.getSymbolTable(), i);
-//            } catch (ToyLanguageException e) {
-//                System.err.println(e.getMessage());
-//            }
-//        }
-////        closeAllFiles(repository.getCurrentProgram().getFileTable().keySet(), repository.getCurrentProgram().getSymbolTable(), repository.getCurrentProgram());
-//        for (ProgramState i : this.repository.getProgramStateList()) {
-//            try {
-//                this.repository.LogProgramStateExecution(i);
-//            } catch (IOException e) {
-//                System.err.println(e.getMessage());
-//            }
-//        }
-////        repository.logPrgStateExec(repository.getCurrentProgram());
-//
-////        executor.shutdownNow();
-//        repository.setProgramStateList(states);
-    }
-
-    private List<ProgramState> removeCompletedPrograms(List<ProgramState> inProgramList) {
-        return inProgramList.stream().filter(ProgramState::isNotCompleted).collect(Collectors.toList());
+    public List<ProgramState> removeCompletedPrograms(List<ProgramState> list)
+    {
+        return list.stream()
+                .filter(ProgramState -> ProgramState.isNotCompleted())
+                .collect(Collectors.toList());
     }
 }

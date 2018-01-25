@@ -1,17 +1,14 @@
 package sample;
 
-import Model.ADT.Dictionary;
-import Model.ADT.ExecStack;
-import Model.ADT.Heap;
-import Model.ADT.MyList;
+
 import Model.Expression.*;
-import Model.File.FileData;
-import Model.File.FileTable;
+import Model.File.CloseReadFileStatement;
+import Model.File.OpenReadFileStatement;
+import Model.File.ReadFileStatement;
 import Model.ProgramState;
 import Model.Statement.*;
-import Controller.Controller;
-
-import Repository.ProgramStateRepository;
+import Repository.IRepository;
+import Repository.Repository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -32,66 +29,125 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class GUIController implements Initializable {
-    private List<Statement> statements;
-    public static Controller controller;
+    private List<IStatement> statements;
+    public static Controller.Controller controller;
     @FXML
     private ListView<String> mainListView;
     @FXML
     private Button runButton;
 
     private void initStatements(){
-        Statement s1 = new CompStatement(new AssignStatement("v", new ConstExpression(10)), new PrintStatement(new VarExpression("v")));
-        Statement s2 = new CompStatement(
-                new AssignStatement("a", new ArithmeticExpression('+',
-                        new ConstExpression(2),
-                        new ArithmeticExpression('*',
-                                new ConstExpression(3),
-                                new ConstExpression(5)))),
-                new CompStatement(
-                        new AssignStatement("b", new ArithmeticExpression('-', new VarExpression("a"), new ConstExpression(1))),
-                        new PrintStatement(new VarExpression("b"))));
+        IStatement s1 = new CompoundStatement(new AssignmentStatement("v", new ConstantExpression(10)), new PrintStatement(new VariableExpression("v")));
+        IStatement s2 = new CompoundStatement(
+                new AssignmentStatement("a", 
+                        new ArithmeticExpression( 
+                                new ConstantExpression(2),
+                                "+",
+                                new ArithmeticExpression(
+                                new ConstantExpression(3),
+                                "*",
+                                new ConstantExpression(5)))),
+                new CompoundStatement(
+                        new AssignmentStatement("b", new ArithmeticExpression(new VariableExpression("a"), "-", new ConstantExpression(1))),
+                        new PrintStatement(new VariableExpression("b"))));
 
 
-        Statement a1 = new AssignStatement("i",new ConstExpression(0));
-        Statement a2 = new CompStatement(
-                new AssignStatement("i", new ArithmeticExpression('+', new VarExpression("i"),new ConstExpression(1))),
-                new PrintStatement(new VarExpression("i")));
-        Statement s3 = new CompStatement(a1, new WhileStatement(new BooleanExpression("<=", new VarExpression("i"), new ConstExpression(10)), a2));
+        IStatement a1 = new AssignmentStatement("i",new ConstantExpression(0));
+        IStatement a2 = new CompoundStatement(
+                new AssignmentStatement("i", new ArithmeticExpression(new VariableExpression("i"), "+", new ConstantExpression(1))),
+                new PrintStatement(new VariableExpression("i")));
+        IStatement s3 = new CompoundStatement(a1, new WhileStatement(new BooleanExpression(new VariableExpression("i"), "<=", new ConstantExpression(10)), a2));
 
 
-        Statement open_file1 = new OpenFileStatement("file1", "file1.txt");
-        Statement open_file2 = new OpenFileStatement("file2", "file2.txt");
-        Statement read_var1 = new OpenFileStatement("file1", "var1");
-        Statement read_var2 = new OpenFileStatement("file1", "var2");
-        Statement read_var3 = new OpenFileStatement("file2", "var3");
-        Statement close_file1 = new CloseFileStatement(new VarExpression("file1"));
-        Statement close_file2 = new CloseFileStatement(new VarExpression("file2"));
+        IStatement open_file1 = new OpenReadFileStatement("file1", "file1.txt");
+        IStatement open_file2 = new OpenReadFileStatement("file2", "file2.txt");
+        IStatement read_var1 = new ReadFileStatement(new VariableExpression("file1"), "var1");
+        IStatement read_var2 = new ReadFileStatement(new VariableExpression("file1"), "var2");
+        IStatement read_var3 = new ReadFileStatement(new VariableExpression("file2"), "var3");
+        IStatement close_file1 = new CloseReadFileStatement(new VariableExpression("file1"));
+        IStatement close_file2 = new CloseReadFileStatement(new VariableExpression("file2"));
 
-        Statement s4 = new CompStatement(open_file1, new CompStatement(open_file2, new CompStatement(read_var1, new CompStatement(read_var2, new CompStatement(read_var3, new CompStatement(close_file1, close_file2))))));
+        IStatement s4 = new CompoundStatement(open_file1, new CompoundStatement(open_file2, new CompoundStatement(read_var1, new CompoundStatement(read_var2, new CompoundStatement(read_var3, new CompoundStatement(close_file1, close_file2))))));
 
 
-        Statement new_statement = new NewStatement("v", new ConstExpression(20)); //new(v,20)
-        Statement printStm = new PrintStatement(new VarExpression("v")); //print(v)
-        Statement printStm2 = new PrintStatement(new ReadHeapExpression("v")); //;print(rH(v));
-        Statement write_heap = new WriteHeapStatement("v", new ConstExpression(30));//wH(v,30);
+        IStatement new_statement = new NewStatement("v", new ConstantExpression(20)); //new(v,20)
+        IStatement printStm = new PrintStatement(new VariableExpression("v")); //print(v)
+        IStatement printStm2 = new PrintStatement(new ReadHeapExpression("v")); //;print(rH(v));
+        IStatement write_heap = new WriteStatement("v", new ConstantExpression(30));//wH(v,30);
         //Statement printStm3 = new PrintStatement(new ReadHeap("a")); // print(rH(a))
-        //Statement printStm4 = new PrintStatement(new VarExpression("a")); //print(a);
-        Statement s5 = new CompStatement(new_statement, new CompStatement(printStm, new CompStatement(printStm2, write_heap)));
+        //Statement printStm4 = new PrintStatement(new VariableExpression("a")); //print(a);
+        IStatement s5 = new CompoundStatement(new_statement, new CompoundStatement(printStm, new CompoundStatement(printStm2, write_heap)));
 
-        Statement s6 = new CompStatement(new AssignStatement("v",new ConstExpression(100)), new CompStatement(new PrintStatement(new VarExpression("v")),
-                new ForkStatement(new CompStatement(new AssignStatement("v", new ConstExpression(7)),new PrintStatement(new VarExpression("v"))))));
+        IStatement s6 =
+                new CompoundStatement(
+                        new AssignmentStatement(
+                                "v",
+                                new ConstantExpression(100)),
+                        new CompoundStatement(
+                                new PrintStatement(
+                                        new VariableExpression("v")),
+
+                                new CompoundStatement(
+                                        new ForkStatement(
+                                                new CompoundStatement(
+                                                        new AssignmentStatement(
+                                                                "v",
+                                                                new ConstantExpression(7)),
+                                                        new PrintStatement(
+                                                                new VariableExpression("v")))),
+                                new CompoundStatement(
+                                        new PrintStatement(new ConstantExpression(3)),
+                                        new PrintStatement(new ConstantExpression(3))))));
 
 
-        Statement s7 = new PrintStatement(new ArithmeticExpression('/', new ConstExpression(5), new ConstExpression(0)));
+        IStatement s7 = new PrintStatement(new ArithmeticExpression(new ConstantExpression(5), "/", new ConstantExpression(0)));
 
-        this.statements = new ArrayList<>(Arrays.asList(s1, s2, s3, s4, s5, s6, s7));
+
+        IStatement s8 =
+                new CompoundStatement(
+                        new AssignmentStatement(
+                                "v",
+                                new ConstantExpression(10)),
+                        new CompoundStatement(
+                                new NewStatement(
+                                        "a",
+                                        new ConstantExpression(22)),
+                                new CompoundStatement(
+                                        new ForkStatement(
+                                                new CompoundStatement(
+                                                        new CompoundStatement(
+                                                                new WriteStatement(
+                                                                        "a",
+                                                                        new ConstantExpression(30)),
+                                                                new CompoundStatement(
+                                                                        new AssignmentStatement(
+                                                                                "v",
+                                                                                new ConstantExpression(32)),
+                                                                        new CompoundStatement(
+                                                                                new PrintStatement(
+                                                                                        new VariableExpression("v")),
+                                                                                new PrintStatement(
+                                                                                        new ReadHeapExpression(
+                                                                                                "a"))))),
+                                                        new PrintStatement(
+                                                                new ArithmeticExpression(
+                                                                        new ConstantExpression(23),
+                                                                        "+",
+                                                                        new ConstantExpression(0))))),
+                                        new CompoundStatement(
+                                                new PrintStatement(
+                                                        new VariableExpression("v")),
+                                                new PrintStatement(
+                                                        new ReadHeapExpression(
+                                                                "a"))))));
+        this.statements = new ArrayList<>(Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8));
 
     }
 
     private List<String> getStringRepresentations(){
         return this.statements
                 .stream()
-                .map(Statement::toString)
+                .map(IStatement::toString)
                 .collect(Collectors.toList());
     }
 
@@ -106,13 +162,11 @@ public class GUIController implements Initializable {
             if (index < 0 ){
                 return;
             }
-            ExecStack<Statement> stack = new ExecStack<>();
-            stack.push(statements.get(index));
-            ProgramState initialProgramState = new ProgramState(new Dictionary<>(), stack,  new MyList<>(), new FileTable<Integer, FileData>(),new Heap<Integer, Integer>(), null);
-            ProgramStateRepository repository = new ProgramStateRepository("log" + index + ".txt");
+            ProgramState initialProgramState =
+                    new ProgramState(statements.get(index));
+            IRepository repository = new Repository("log" + index + ".txt");
             repository.addProgramState(initialProgramState);
-            Controller auxController = new Controller(repository);
-            this.controller = auxController;
+            controller = new Controller.Controller(repository);
 
             try{
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("prgStateGUI.fxml"));

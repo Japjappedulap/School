@@ -1,0 +1,432 @@
+                 ****   ExecutionStack  = {i = 0; while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = 0 | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = 0 | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 0}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 0}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 0}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 0}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 1}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 1}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 1}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 1}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 1}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 1}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 2}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 2}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 2}
+Thread ID:     1 ****   OutputList      = {1, 2}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 2}
+Thread ID:     1 ****   OutputList      = {1, 2}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 2}
+Thread ID:     1 ****   OutputList      = {1, 2}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 2}
+Thread ID:     1 ****   OutputList      = {1, 2}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 3}
+Thread ID:     1 ****   OutputList      = {1, 2}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 3}
+Thread ID:     1 ****   OutputList      = {1, 2}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 3}
+Thread ID:     1 ****   OutputList      = {1, 2, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 3}
+Thread ID:     1 ****   OutputList      = {1, 2, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 3}
+Thread ID:     1 ****   OutputList      = {1, 2, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 3}
+Thread ID:     1 ****   OutputList      = {1, 2, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 4}
+Thread ID:     1 ****   OutputList      = {1, 2, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 4}
+Thread ID:     1 ****   OutputList      = {1, 2, 3}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 4}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 4}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 4}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 4}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 5}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 5}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 5}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 5}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 5}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 5}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 6}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 6}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 6}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 6}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 6}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 6}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 7}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 7}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 7}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 7}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 7}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 7}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 8}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 8}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 8}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 8}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 8}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 8}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 9}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 9}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 9}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 9}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 9}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 9}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 10}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 10}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 10}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 10}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 10}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {i = i + 1 | print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 10}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 11}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(i) | while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 11}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 11}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {while ((i <= 10)) { i = i + 1; print(i) }}
+                 ****   SymbolTable     = {i -> 11}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {}
+                 ****   SymbolTable     = {i -> 11}
+Thread ID:     1 ****   OutputList      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------

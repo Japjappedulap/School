@@ -6,4 +6,5 @@ public interface IList<T> {
     void add(T to_add);
     List<T> toList();
     String toString();
+    public Iterable<T> getAll();
 }

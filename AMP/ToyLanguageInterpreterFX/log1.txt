@@ -1,0 +1,60 @@
+                 ****   ExecutionStack  = {a = 2 + 3 * 5; b = a - 1; print(b)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {a = 2 + 3 * 5 | b = a - 1; print(b)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {a = 2 + 3 * 5 | b = a - 1; print(b)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {b = a - 1; print(b)}
+                 ****   SymbolTable     = {a -> 17}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {b = a - 1; print(b)}
+                 ****   SymbolTable     = {a -> 17}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {b = a - 1 | print(b)}
+                 ****   SymbolTable     = {a -> 17}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {b = a - 1 | print(b)}
+                 ****   SymbolTable     = {a -> 17}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(b)}
+                 ****   SymbolTable     = {a -> 17 ; b -> 16}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(b)}
+                 ****   SymbolTable     = {a -> 17 ; b -> 16}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {}
+                 ****   SymbolTable     = {a -> 17 ; b -> 16}
+Thread ID:     1 ****   OutputList      = {16}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------

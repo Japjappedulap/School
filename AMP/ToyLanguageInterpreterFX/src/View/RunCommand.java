@@ -12,6 +12,6 @@ public class RunCommand extends Command {
 
     @Override
     public void execute() {
-        controller.executeAllSteps();
+//        controller.executeAllSteps();
     }
 }

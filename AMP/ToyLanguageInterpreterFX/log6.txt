@@ -1,0 +1,12 @@
+                 ****   ExecutionStack  = {print(5 / 0)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------

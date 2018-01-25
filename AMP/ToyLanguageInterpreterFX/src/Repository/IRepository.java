@@ -3,18 +3,20 @@ package Repository;
 import Model.ProgramState;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface IRepository {
     void LogProgramStateExecution(ProgramState programState) throws IOException;
 
-    void LogProgramStatesExecution(List<ProgramState> programStateList);
+    void LogProgramStatesExecution(ArrayList<ProgramState> programStateList);
 
-    List<ProgramState> getProgramStateList();
+    ArrayList<ProgramState> getProgramStateList();
 
-    void setProgramStateList(List<ProgramState> programStateList);
+    void setProgramStateList(ArrayList<ProgramState> programStateList);
 
     ProgramState getProgramStateWithId(int currentId);
 
-    public void addProgramState(ProgramState initialProgramState);
+    public void addProgramState(ProgramState programState);
 }

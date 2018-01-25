@@ -21,9 +21,9 @@ public class CloseReadFileStatement implements IStatement {
         IDictionary<String, Integer> symbolTable = current_state.getSymbolTable();
         IDictionary<Integer, FilePair> fileTable = current_state.getFileTable();
         IDictionary<Integer, Integer> heapTable = current_state.getHeapTable();
-        Integer unique = this.variable.evaluate(symbolTable, heapTable);
+        Integer fileDescriptor = this.variable.evaluate(symbolTable, heapTable);
 
-        FilePair pair = fileTable.get(unique);
+        FilePair pair = fileTable.get(fileDescriptor);
         if (pair == null) {
             throw new FileNotFound(this.toString());
         }
@@ -36,7 +36,7 @@ public class CloseReadFileStatement implements IStatement {
             throw new FileClosingException(this.toString());
         }
 
-        fileTable.remove(unique);
+        fileTable.remove(fileDescriptor);
         return null;
     }
 

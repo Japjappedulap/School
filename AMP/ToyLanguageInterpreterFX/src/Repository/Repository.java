@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Repository implements IRepository {
-    private List<ProgramState> programStateList;
+    private ArrayList<ProgramState> programStateList;
     private String logFilePath;
 
-    public Repository(List<ProgramState> programStateList) {
+    public Repository(ArrayList<ProgramState> programStateList) {
         this.programStateList = programStateList;
         this.logFilePath = "";
     }
 
-    public Repository(List<ProgramState> programStateList, String logFilePath) {
+    public Repository(ArrayList<ProgramState> programStateList, String logFilePath) {
         this.programStateList = programStateList;
         this.logFilePath = logFilePath;
     }
@@ -40,7 +40,7 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public void LogProgramStatesExecution(List<ProgramState> programStateList) {
+    public void LogProgramStatesExecution(ArrayList<ProgramState> programStateList) {
         programStateList.forEach(state -> {
             PrintWriter logFile;
             try {
@@ -53,12 +53,12 @@ public class Repository implements IRepository {
         });
     }
 
-    public List<ProgramState> getProgramStateList() {
+    public ArrayList<ProgramState> getProgramStateList() {
         return this.programStateList;
     }
 
     @Override
-    public void setProgramStateList(List<ProgramState> programStateList) {
+    public void setProgramStateList(ArrayList<ProgramState> programStateList) {
         this.programStateList = programStateList;
     }
 
@@ -71,8 +71,8 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public void addProgramState(ProgramState initialProgramState) {
-        programStateList.add(initialProgramState);
+    public void addProgramState(ProgramState programState) {
+        programStateList.add(programState);
     }
 
 }

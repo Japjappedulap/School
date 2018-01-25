@@ -7,12 +7,12 @@ import Model.Expression.Expression;
 import Model.ProgramState;
 
 public class IfStatement implements IStatement {
-    private Expression expression;
+    private Expression condition;
     private IStatement thenStatement;
     private IStatement elseStatement;
 
-    public IfStatement(Expression expression, IStatement thenStatement, IStatement elseStatement) {
-        this.expression = expression;
+    public IfStatement(Expression condition, IStatement thenStatement, IStatement elseStatement) {
+        this.condition = condition;
         this.thenStatement = thenStatement;
         this.elseStatement = elseStatement;
     }
@@ -26,7 +26,7 @@ public class IfStatement implements IStatement {
         int value = 0;
 
         try {
-            value = expression.evaluate(symbolTable, heapTable);
+            value = condition.evaluate(symbolTable, heapTable);
         } catch (ToyLanguageException exception) {
             exception.printStackTrace();
         }
@@ -37,7 +37,7 @@ public class IfStatement implements IStatement {
 
     @Override
     public String toString() {
-        return "if(" + this.expression.toString() + ") then " +
+        return "if(" + this.condition.toString() + ") then " +
                 thenStatement.toString() + " else " + elseStatement.toString();
     }
 }

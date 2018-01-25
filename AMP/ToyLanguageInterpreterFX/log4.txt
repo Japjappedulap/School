@@ -1,0 +1,84 @@
+                 ****   ExecutionStack  = {new(v, 20); print(v); print(readHeap(v)); writeHeap(v, 30)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {new(v, 20) | print(v); print(readHeap(v)); writeHeap(v, 30)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {new(v, 20) | print(v); print(readHeap(v)); writeHeap(v, 30)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v); print(readHeap(v)); writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v); print(readHeap(v)); writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v) | print(readHeap(v)); writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(v) | print(readHeap(v)); writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(readHeap(v)); writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(readHeap(v)); writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(readHeap(v)) | writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {print(readHeap(v)) | writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {1}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {1, 20}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {writeHeap(v, 30)}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {1, 20}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 20}
+----------------------------------------------------
+                 ****   ExecutionStack  = {}
+                 ****   SymbolTable     = {v -> 1}
+Thread ID:     1 ****   OutputList      = {1, 20}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {1 -> 30}
+----------------------------------------------------

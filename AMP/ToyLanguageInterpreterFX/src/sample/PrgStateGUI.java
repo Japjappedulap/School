@@ -2,13 +2,12 @@ package sample;
 
 
 import Controller.Controller;
-import Model.ADT.IDictionary;
-import Model.ADT.IExecStack;
-import Model.ADT.IHeap;
-import Model.ADT.IList;
-import Model.File.FileData;
-import Model.File.IFileTable;
-import Model.Statement.Statement;
+import Model.DataStructure.IDictionary;
+import Model.DataStructure.IList;
+import Model.DataStructure.IStack;
+import Model.File.FilePair;
+import Model.ProgramState;
+import Model.Statement.IStatement;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -16,14 +15,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import Model.*;
 
 import java.net.URL;
 import java.util.*;
 
 public class PrgStateGUI implements Initializable
 {
-    public Controller controller;
+    private Controller controller;
 
     @FXML
     private ListView<String> ExeStackV;
@@ -50,7 +48,7 @@ public class PrgStateGUI implements Initializable
     private TableView<Map.Entry<Integer, Integer>> HeapTableV;
 
     @FXML
-    private TableColumn<Map.Entry<Integer, Integer>, Integer> HTAdress;
+    private TableColumn<Map.Entry<Integer, Integer>, Integer> HTAddress;
 
     @FXML
     private TableColumn<Map.Entry<Integer, Integer>, Integer> HTValue;
@@ -73,7 +71,7 @@ public class PrgStateGUI implements Initializable
     {
         this.controller = GUIController.controller;
 
-        HTAdress.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().getKey()).asObject());
+        HTAddress.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().getKey()).asObject());
         HTValue.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().getValue()).asObject());
 
         FTVariable.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getKey() + ""));
@@ -82,7 +80,7 @@ public class PrgStateGUI implements Initializable
         STVariable.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getKey() + ""));
         STValue.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().getValue()).asObject());
 
-        ProgramState ps = this.controller.getRepo().getPrgStates().get(0);
+        ProgramState ps = this.controller.getRepository().getProgramStateList().get(0);
         updateAll(ps);
 
     }
@@ -100,7 +98,7 @@ public class PrgStateGUI implements Initializable
     public void executeOneStep()
     {
         try {
-            controller.oneStep();
+            controller.executeOneStep();
         }
         catch (Exception e)
         {
@@ -108,72 +106,74 @@ public class PrgStateGUI implements Initializable
             alert.showAndWait();
             return;
         }
-        controller.removeCompletedPrograms(controller.getRepo().getPrgStates());
-        int sz = controller.getRepo().getPrgStates().size();
+        int sz = controller.getRepository().getProgramStateList().size();
+        for (ProgramState ps : controller.getRepository().getProgramStateList()) {
+            System.out.println(ps);
+        }
         if ( sz == 0 )
         {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Nothing left to execute", ButtonType.OK);
             alert.showAndWait();
             return;
         }
-        ProgramState ps= controller.getRepo().getPrgStates().get(sz-1);
+        ProgramState ps= controller.getRepository().getProgramStateList().get(sz-1);
         updateAll(ps);
     }
 
 
     public void update_current_id(ProgramState prg){
-        List<Integer> lista = new ArrayList<>();
-        lista.add(prg.getId());
-        currentId.setItems(FXCollections.observableList(lista));
+        List<Integer> list = new ArrayList<>();
+        list.add(prg.getThreadID());
+        currentId.setItems(FXCollections.observableList(list));
     }
     public void update_ids(){
-        List<Integer> lista=new ArrayList<>();
-        List<ProgramState> states = controller.getRepo().getPrgStates();
+        List<Integer> list =new ArrayList<>();
+        List<ProgramState> states = controller.getRepository().getProgramStateList();
         for(ProgramState pr : states)
-            lista.add(pr.getId());
-        IdProgramV.setItems(FXCollections.observableList(lista));
+            list.add(pr.getThreadID());
+        IdProgramV.setItems(FXCollections.observableList(list));
     }
     public void update_Stack(ProgramState current){
-        IExecStack<Statement> mystack = current.getExecStack();
+        IStack<IStatement> my_stack = current.getExecutionStack();
         List<String> execution=new ArrayList<>();
 
-        for(Statement s:mystack.getAll()){
-            execution.add(s.toString());
+        for(IStatement s:my_stack.getAll()){
+            execution.add(0,s.toString());
         }
         ExeStackV.setItems(FXCollections.observableList(execution));
     }
 
     public void update_SymTable(ProgramState prg){
-        IDictionary<String,Integer> symtbl = prg.getSymbolTable();
-        List<Map.Entry<String,Integer>> lista=new ArrayList<>();
-        for(Map.Entry<String,Integer> entry: symtbl.getAll().entrySet())
+        IDictionary<String, Integer> symbolTable = prg.getSymbolTable();
+        List<Map.Entry<String,Integer>> list = new ArrayList<>();
+        for(Map.Entry<String,Integer> entry: symbolTable.getAll())
         {
-            lista.add(entry);
+            list.add(entry);
         }
-        ObservableList<Map.Entry<String, Integer>> items=FXCollections.observableList(lista);
+        ObservableList<Map.Entry<String, Integer>> items=FXCollections.observableList(list);
         SymTableV.setItems(items);
         SymTableV.refresh();
 
     }
 
     public void update_heap(ProgramState prg){
-        IHeap<Integer,Integer> heap=prg.getHeap();
-        List<Map.Entry<Integer,Integer>> lista=new ArrayList<>();
-        for(Map.Entry<Integer,Integer>entry:heap.getAll().entrySet()){
-            lista.add(entry);
+        IDictionary<Integer,Integer> heapTable = prg.getHeapTable();
+        List<Map.Entry<Integer,Integer>> list = new ArrayList<>();
+        for(Map.Entry<Integer,Integer>entry:heapTable.getAll()){
+            list.add(entry);
         }
-        HeapTableV.setItems(FXCollections.observableList(lista));
+        HeapTableV.setItems(FXCollections.observableList(list));
         HeapTableV.refresh();
     }
 
     public void update_file(ProgramState prg){
-        IFileTable<Integer, FileData> fileT = prg.getFileTable();
-        Map<Integer,String> lista = new HashMap<>();
-        for(Map.Entry<Integer, FileData> entry: fileT.getAll().entrySet())
+        IDictionary<Integer, FilePair> fileT = prg.getFileTable();
+        Map<Integer,String> list = new HashMap<>();
+        for(Map.Entry<Integer, FilePair> entry: fileT.getAll())
         {
-            lista.put(entry.getKey(),entry.getValue().getFilename());
+            list.put(entry.getKey(),entry.getValue().getFileName());
         }
-        List<Map.Entry<Integer,String>> list2 = new ArrayList<>(lista.entrySet());
+        List<Map.Entry<Integer,String>> list2 = new ArrayList<>(list.entrySet());
         FileTableV.setItems(FXCollections.observableList(list2));
         FileTableV.refresh();
     }

@@ -12,7 +12,8 @@ public class ForkStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState current_state) {
-        return new ProgramState(
+        System.err.println("in fork");
+        ProgramState st = new ProgramState(
                 this.statement,
                 new MyStack<>(),
                 current_state.getSymbolTable().clone_dict(),
@@ -20,6 +21,8 @@ public class ForkStatement implements IStatement {
                 current_state.getFileTable(),
                 current_state.getHeapTable(),
                 current_state.getThreadID() * 10);
+
+        return st;
     }
 
     @Override

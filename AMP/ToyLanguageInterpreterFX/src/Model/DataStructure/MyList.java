@@ -37,4 +37,9 @@ public class MyList<T> implements IList<T> {
         print.setLength(max(print.length() - 2, 0));
         return print.toString();
     }
+
+    @Override
+    public Iterable<T> getAll() {
+        return this.list;
+    }
 }

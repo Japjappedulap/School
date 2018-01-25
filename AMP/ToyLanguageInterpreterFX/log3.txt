@@ -1,0 +1,18 @@
+                 ****   ExecutionStack  = {openRFile(file1, "file1.txt"); openRFile(file2, "file2.txt"); readFile(file1, var1); readFile(file1, var2); readFile(file2, var3); closeRFile(file1); closeRFile(file2)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {openRFile(file1, "file1.txt") | openRFile(file2, "file2.txt"); readFile(file1, var1); readFile(file1, var2); readFile(file2, var3); closeRFile(file1); closeRFile(file2)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
+                 ****   ExecutionStack  = {openRFile(file1, "file1.txt") | openRFile(file2, "file2.txt"); readFile(file1, var1); readFile(file1, var2); readFile(file2, var3); closeRFile(file1); closeRFile(file2)}
+                 ****   SymbolTable     = {}
+Thread ID:     1 ****   OutputList      = {}
+                 ****   FileTable       = {}
+                 ****   HeapTable       = {}
+----------------------------------------------------
