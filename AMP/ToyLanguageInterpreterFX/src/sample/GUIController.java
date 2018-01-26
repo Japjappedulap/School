@@ -140,7 +140,43 @@ public class GUIController implements Initializable {
                                                 new PrintStatement(
                                                         new ReadHeapExpression(
                                                                 "a"))))));
-        this.statements = new ArrayList<>(Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8));
+//        a=1;b=2;
+//        c=a?100:200;
+//        print(c);
+//        c= (b-2)?100:200
+        IStatement s9 = new CompoundStatement(
+                new AssignmentStatement(
+                        "a",
+                        new ConstantExpression(1)),
+                new CompoundStatement(
+                        new AssignmentStatement(
+                                "b",
+                                new ConstantExpression(2)),
+                        new CompoundStatement(
+                                new ConditionalAssignmentStatement(
+                                        "c",
+                                        new VariableExpression("a"),
+                                        new ConstantExpression(100),
+                                        new ConstantExpression(200)),
+                                new CompoundStatement(
+                                        new PrintStatement(
+                                                new VariableExpression("c")),
+                                        new CompoundStatement(
+                                                new ConditionalAssignmentStatement(
+                                                        "c",
+                                                        new ArithmeticExpression(
+                                                                new VariableExpression("b"),
+                                                                "-",
+                                                                new ConstantExpression(2)),
+                                                        new ConstantExpression(100),
+                                                        new ConstantExpression(200)),
+                                                new PrintStatement(new VariableExpression("c")))))));
+
+        IStatement x = new ConditionalAssignmentStatement("c",
+                new ArithmeticExpression(new ConstantExpression(5), "-", new ConstantExpression(3)),
+                new ConstantExpression(1), new ConstantExpression(2));
+        System.out.println(x);
+        this.statements = new ArrayList<>(Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8, s9, x));
 
     }
 

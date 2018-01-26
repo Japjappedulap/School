@@ -1,5 +1,9 @@
 package sample;
 
+import Model.Expression.ArithmeticExpression;
+import Model.Expression.ConstantExpression;
+import Model.Statement.ConditionalAssignmentStatement;
+import Model.Statement.IStatement;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +18,11 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+//
+//        IStatement x = new ConditionalAssignmentStatement("c",
+//                new ArithmeticExpression(new ConstantExpression(5), "-", new ConstantExpression(3)),
+//                new ConstantExpression(1), new ConstantExpression(2));
+//        System.out.println(x);
     }
 
 
