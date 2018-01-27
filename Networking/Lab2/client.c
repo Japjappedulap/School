@@ -4,7 +4,8 @@
 #include <string.h>
 #include <stdint.h>
 #include <errno.h>
-             
+
+#define test 10000             
 #define max 100
 char result[64];
  
