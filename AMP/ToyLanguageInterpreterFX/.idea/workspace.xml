@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Mersi Emilia! Done lab 8">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Model/Statement/ConditionalAssignmentStatement.java" />
-      <change beforePath="$PROJECT_DIR$/../ToyLanguageInterpreter/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../ToyLanguageInterpreter/.idea/workspace.xml" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToyLanguageInterpreterFX/sample/Main.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GUIController.java" afterPath="$PROJECT_DIR$/src/sample/GUIController.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/sample/Main.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/ToyLanguageInterpreterFX/sample/GUIController.class" afterPath="$PROJECT_DIR$/out/production/ToyLanguageInterpreterFX/sample/GUIController.class" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -561,7 +557,7 @@
       <workItem from="1516836805186" duration="8019000" />
       <workItem from="1516911463668" duration="5688000" />
       <workItem from="1516917343906" duration="4681000" />
-      <workItem from="1516950191171" duration="2922000" />
+      <workItem from="1516950191171" duration="3588000" />
     </task>
     <task id="LOCAL-00001" summary="Functional(kidding), but much more stuff to do">
       <created>1516840645150</created>
@@ -570,11 +566,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516840645150</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added exam, cea mai de kkt materie">
+      <created>1516992197469</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1516992197469</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23063000" />
+    <option name="totallyTimeSpent" value="23729000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
@@ -628,7 +631,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Functional(kidding), but much more stuff to do" />
-    <option name="LAST_COMMIT_MESSAGE" value="Functional(kidding), but much more stuff to do" />
+    <MESSAGE value="Added exam, cea mai de kkt materie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added exam, cea mai de kkt materie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
