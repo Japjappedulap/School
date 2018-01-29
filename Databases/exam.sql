@@ -36,9 +36,10 @@ CREATE TABLE testDB.dbo.SpeakersToConferences (
   ConferenceID INT,
   Length INT DEFAULT 60,
   CONSTRAINT SpeakersFK FOREIGN KEY (SpeakerID) REFERENCES testDB.dbo.Speakers (SpeakerID),
-  CONSTRAINT ConferenceFK FOREIGN KEY (ConferenceID) REFERENCES testDB.dbo.Companies (CompanyID),
+  CONSTRAINT ConferenceFK FOREIGN KEY (ConferenceID) REFERENCES testDB.dbo.Conferences (ConferenceID),
   CONSTRAINT SpeakerID_ConferenceID_PK PRIMARY KEY (SpeakerID, ConferenceID)
 );
+
 
 CREATE PROCEDURE Insert_Speaker_conference
   @SpeakerID INT,
@@ -74,7 +75,9 @@ AS BEGIN
 END;
 
 CREATE VIEW ShowConferencesWithAtLeast3Speakers AS
-  SELECT SC.ConferenceID, C.Name, C.Location  FROM testDB.dbo.SpeakersToConferences SC INNER JOIN testDB.dbo.Conferences C ON SC.ConferenceID = C.ConferenceID
+  SELECT SC.ConferenceID, C.Name, C.Location
+    FROM testDB.dbo.SpeakersToConferences SC
+    INNER JOIN testDB.dbo.Conferences C ON SC.ConferenceID = C.ConferenceID
     GROUP BY SC.ConferenceID, C.Name, C.Location HAVING COUNT(SC.ConferenceID) >= 3
 
 CREATE FUNCTION ShowAbsentSpeakers() RETURNS TABLE AS
@@ -90,7 +93,7 @@ SELECT S2.SpeakerID ,S2.Name, C.Name, C.ConferenceID, SC.Length FROM SpeakersToC
   INNER JOIN Speakers S2 ON SC.SpeakerID = S2.SpeakerID
   INNER JOIN Conferences C on SC.ConferenceID = C.ConferenceID
 
-EXECUTE Insert_Speaker_conference 3, 1, 10
+EXECUTE Insert_Speaker_conference 1, 2, 10
 EXECUTE Insert_Speaker_conference 2, 1, 10
 EXECUTE Insert_Speaker_conference 4, 2, 10
 SELECT * FROM ShowAbsentSpeakers();
