@@ -12,23 +12,23 @@
 
 ; (write (VectorSum '(1 2 3) '(3 2 1)))
 
-(defun Liniarize (L)
+(defun Linearize (L)
   (cond
     ((null L)
       NIL
     )
 
     ((atom (car L))
-      (append (list (car L)) (Liniarize (cdr L)))
+      (append (list (car L)) (Linearize (cdr L)))
     )
 
     ((listp (car L))
-      (append (Liniarize (car L)) (Liniarize (cdr L)))
+      (append (Linearize (car L)) (Linearize (cdr L)))
     )
   )
 )
 
-; (write (Liniarize '(A (1 ((B) 3)) 4 5) ))
+; (write (Linearize '(A (1 ((B) 3)) 4 5) ))
 
 ;(a b c (d (e f) g h i)) ==>
 ;(c b a (d (f e) i h g))

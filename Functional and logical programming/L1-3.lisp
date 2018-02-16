@@ -22,23 +22,23 @@
 
 ; (write (InsertAtEven '(1 1 1 1 1 1 1 1) 2))
 
-(defun LiniarizeReverse (L)
+(defun LinearizeReverse (L)
   (cond
     ((null L)
       NIL
     )
 
     ((atom (car L))
-      (append (LiniarizeReverse (cdr L)) (list (car L)))
+      (append (LinearizeReverse (cdr L)) (list (car L)))
     )
 
     ((listp (car L))
-      (append (LiniarizeReverse (cdr L)) (LiniarizeReverse (car L)))
+      (append (LinierizeReverse (cdr L)) (LinearizeReverse (car L)))
     )
   )
 )
 
-; (write (LiniarizeReverse '(A (1 ((B) 3)) 4 5) ))
+; (write (LinearizeReverse '(A (1 ((B) 3)) 4 5) ))
 
 (defun GCDNonLinearList (L)
   (cond
