@@ -20,6 +20,11 @@ deleteOccurrences([E | T], E, TR) :-
 deleteOccurrences([H | T], E, [H | TR]) :-
     deleteOccurrences(T, E, TR).
 
+    deleteFirstOccurrence([], _, []).
+    deleteFirstOccurrence([E | T], E, T).
+    deleteFirstOccurrence([H | T], E, [H | TR]) :-
+        deleteFirstOccurrence(T, E, TR).
+
 % minimum list
 getMin([], 9999999).
 getMin([H | T], TR) :-
@@ -37,3 +42,9 @@ gcd(X, Y, R):-
     Y > 0,
     X1 is X mod Y,
     gcd(Y, X1, R).
+
+% list set
+listToSet([], []).
+listToSet([H | T], [H | TR]) :-             % DEPENDENCIES!
+    deleteOccurrences(T, H, NewH),
+    listToSet(NewH, TR).
