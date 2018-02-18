@@ -4,7 +4,6 @@ insert([], 0, E, [E]).
 insert([], _, _, []).
 insert([H | T], 0, E, R) :-
     append([[E], [H], T], R).
-
 insert([H | T], P, E, [H | R]) :-
     NewP is P - 1,
     insert(T, NewP, E, R).

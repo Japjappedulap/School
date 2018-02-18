@@ -3,7 +3,6 @@
 % eg: 10 8 6 9 11 13 – has a “valley” aspect
 
 isValleyUp([_]).
-
 isValleyUp([H1, H2 | T]) :-
     H1 < H2,
     isValleyUp([H2 | T]).
@@ -11,7 +10,6 @@ isValleyUp([H1, H2 | T]) :-
 isValleyDown([H1, H2 | T]) :-
     H1 > H2,
     isValleyDown([H2 | T]).
-
 isValleyDown([H1, H2 | T]) :-
     H1 < H2,
     isValleyUp([H1, H2 | T]).
