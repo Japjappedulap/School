@@ -88,3 +88,41 @@ insert([H | T], 0, E, R) :-
 insert([H | T], P, E, [H | R]) :-
     NewP is P - 1,
     insert(T, NewP, E, R).
+
+addToList([], E, [E]).
+addToList([H | T], E, [E, H | T]).
+addToList([H | T], E, [H | TR]) :-
+    addToList(T, E, TR).
+
+getSize([], 0).
+getSize([_ | T], TR) :-
+    getSize(T, R), TR is R + 1.
+
+
+
+% backtrack
+
+subsets([], []).
+subsets([H | T], [H | TR]) :-
+    subsets(T, TR).
+subsets([_ | T], TR) :-
+    subsets(T, TR).
+
+perm([], []).
+perm([H | T], R) :-
+    perm(T, RT),
+    addToList(RT, H, R).        % DEPENDENCIES
+
+comb(_, 0, []).
+comb([H | T], K, [H | TR]) :-
+    K > 0,
+    K1 is K - 1,
+    comb(T, K1, TR).
+comb([_ | T], K, R) :-
+    K > 0,
+    comb(T, K, R).
+
+
+arr(L, K, R) :-
+    comb(L, K, R1),     % DEPENDENCIES
+    perm(R1, R).        % DEPENDENCIES
