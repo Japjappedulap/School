@@ -237,7 +237,7 @@ def tuned_gbfs(initial_state):
 
 if __name__ == '__main__':
     start_time = datetime.datetime.now()
-    x = State(3, "in3.txt")
+    x = State(3, "test2.txt")
     print(x)
     final_state = tuned_gbfs(x)
     print(final_state)
