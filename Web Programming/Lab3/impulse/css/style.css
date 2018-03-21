@@ -1,0 +1,138 @@
+body {
+        color: #111111;
+        font-family: 'consolas', sans-serif;
+        /* background-color: #252830; */
+        background-color: #d0d7db;
+        font-size: 0.9rem;
+}
+
+div#login {
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+}
+
+div#header {
+        width: 100%;
+        height: 100px;
+        /* display: flex; */
+        align-items: center;
+        background-color: #CCCCCC;
+        vertical-align: middle;
+        align-content: center;
+}
+
+div#header h1 {
+        width: 80%;
+        align-items: center;
+        vertical-align: middle;
+}
+
+div#header div {
+        width: 25%;
+        vertical-align: middle;
+        align-content: center;
+        text-align: middle
+}
+
+.header-separator {
+        width: 100%;
+        /* height: 1px; */
+        margin-top: 0px;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,120,0,1), rgba(0,0,0,0));
+}
+
+.title-shadow {
+}
+
+.login-inner {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        width: 400px;
+}
+
+.login-inner-1 {
+        width: 100px;
+        padding-bottom: 2px;
+}
+.login-inner-2 {
+        width: 275px;
+        padding-bottom: 3px;
+}
+.login-inner-3 {
+        width: 100%;
+        text-align: right;
+        padding: 3px;
+}
+
+.textbox {
+        height: 20px;
+        width: 275px;
+        background-color: transparent;
+        border-style: dotted;
+        border-width: 0px 0px 1px 0px;
+        border-color: #252830;
+        outline: 0;
+        box-shadow: 0px 0px 8px #79a1e5;
+        color: #79a1e5;
+        padding-left: 10px;
+ }
+
+ .simple-button {
+        border-radius: 4px;
+        width: 100;
+        height: 100;
+        border : 1px solid #454850;
+        background-color: #d0d7db;
+        margin: 4px;
+        color: #111111;
+ }
+
+ #maindiv {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        text-align: center;
+        display: flex;
+ }
+
+.panel {
+        border-radius: 6px;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        margin: 5px;
+        margin-bottom: 10px;
+        padding: 0px;
+}
+
+.panel-heading {
+        border-radius: 6px 6px 0px 0px;
+        vertical-align: middle;
+        background: linear-gradient(to right, rgba(245, 245, 255, 0.02), rgba(245, 245, 255, 0.1));
+        padding: 10px;
+        text-align: left;
+}
+
+.panel-body {
+        vertical-align: middle;
+        padding: 10px;
+        text-align: justify;
+}
+
+.problem-separator {
+        background-color: rgb(8, 135, 43);
+        height: 1px;
+}
+
+p.paragraph-problem {
+        padding-left: 10px;
+        border-bottom: 1px solid rgb(8, 135, 43);
+        border-left: 1px solid rgb(8, 135, 43);
+        border-radius: 4px;
+}
+
+p.paragraph-problem:hover {
+        background-color: rgba(121, 161, 229, 0.2);
+}

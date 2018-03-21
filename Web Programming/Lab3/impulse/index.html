@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>imPULSE - a lab tasks management application</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" type="text/css" href="css/style.css"/>
+                <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Jura">
+                <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+                <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+                <script src="js/jquery-3.3.1.min.js"></script>
+                <script>
+                        $(document).ready(function(){
+                            $("#loginbtn").click(function() {
+                                    $.post("auth.php", {user : $("#user").val(), passwd : $("#passwd").val()},
+                                        function(data,status) {
+                                            if (!data.includes("Error: Invalid username/password;")) {
+                                                $("div#header div").html("User: <i class='material-icons'>account_box</i>" + $("#user").val() +
+                                                    "<button class='simple-button' id='logoutbtn'>Logout <i class='material-icons'>exit_to_app</i></button>");
+                                                $("#logoutbtn").click(function() {
+                                                    window.location.href = "logout.php";
+                                                })
+                                            }
+
+                                            //$("#login").remove();
+					    $("#login").fadeOut('2500', function() {
+                                            	$("#maindiv").html(data);
+					    });
+                                        });
+                                    });
+
+                                });
+                </script>
+
+        </head>
+        <body>
+                <div id="header">
+                    <h1>Welcome to <span class='title-shadow'>imPULSE</span></h1>
+                </div>
+                <div class="header-separator"></div>
+
+                <div id="login">
+                        <div>
+                                Use your SCS login and password.<br/>
+                                <p></p>
+                                <div class="login-inner">
+                                        <div class="login-inner-1">&gt; login: </div>
+                                        <div class="login-inner-2"><input type="text" class="textbox" id="user"/></div>
+
+                                        <div class="login-inner-1">&gt; password: </div>
+                                        <div class="login-inner-2"><input type="password" class="textbox" id="passwd"/></div>
+                                        <br/>
+
+                                        <div class="login-inner-3"><input type="button" value="Login" class="simple-button" id="loginbtn"/></div>
+                                </div>
+                        </div>
+                </div>
+
+                <div class="container" id="maindiv">
+
+                </div>
+
+
+        </body>
+</html>
