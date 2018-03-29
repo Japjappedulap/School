@@ -1,0 +1,15 @@
+.graph {
+    width: 480px;
+    height: 500px;
+    border: 2px solid #aeaeae;
+    background-color: #eaeaea;
+}
+.bar {
+    width: 80px;
+    margin: 5px;
+    border: 1px solid grey;
+    display: inline-block;
+    position: relative;
+    background-color: #aeaeae;
+    vertical-align: baseline;
+}
