@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Lab JS</title>
+        <style media="screen">
+            /* table, th, td { */
+                /* border: 1px solid black; */
+                /* border-collapse: collapse; */
+            /* } */
+            body {
+                background-color: #e2e2e2;
+            }
+            table {
+                background-color: #c4c4c4;
+                border: 1px solid black;
+                font-size: 40px;
+                border-collapse: collapse;
+                font-family: consolas;
+                margin: auto;
+            }
+            th {
+                width: 350px;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+        <script type="text/javascript">
+        var colsorted = [0, 0, 0];
+        function myfunction(param) {
+            param -= 1;
+            if (colsorted[param] == 0 || colsorted[param] == 2) {
+                colsorted = [0, 0, 0];
+                colsorted[param] = 1;
+                sortAsc(param);
+                return;
+            }
+            if (colsorted[param] == 1) {
+                colsorted = [0, 0, 0];
+                colsorted[param] = 2;
+                sortDesc(param);
+                return;
+            }
+        }
+        function sortAsc(col) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("myTable");
+            switching = true;
+            while (switching) {
+                // BABAL sort
+                switching = false;
+                rows = table.getElementsByTagName("TR");
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[col];
+                    y = rows[i + 1].getElementsByTagName("TD")[col];
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch= true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+        function sortDesc(col) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("myTable");
+            switching = true;
+            while (switching) {
+                switching = false;
+                rows = table.getElementsByTagName("TR");
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[col];
+                    y = rows[i + 1].getElementsByTagName("TD")[col];
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        shouldSwitch= true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+
+        </script>
+    </head>
+    <body>
+        <table id="myTable">
+            <tr>
+                <th onclick="myfunction(1)">Column 1</th>
+                <th onclick="myfunction(2)">Column 2</th>
+                <th onclick="myfunction(3)">Column 3</th>
+            </tr>
+            <tr>
+                <td>1</td> <td>abc</td> <td>99</td>
+            </tr>
+            <tr>
+                <td>3</td> <td>zxc</td> <td>50</td>
+            </tr>
+            <tr>
+                <td>0</td> <td>kasjd</td> <td>22</td>
+            </tr>
+            <tr>
+                <td>88</td> <td>xjd</td> <td>232</td>
+            </tr>
+            <tr>
+                <td>33</td> <td>ppljib</td> <td>1234</td>
+            </tr>
+            <tr>
+                <td>37</td> <td>ljib</td> <td>14</td>
+            </tr>
+            <tr>
+                <td>357</td> <td>gnu</td> <td>1x4</td>
+            </tr>
+        </table>
+
+    </body>
+</html>

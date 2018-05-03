@@ -2,21 +2,25 @@ import numpy
 
 
 class Algorithm:
-    def __init__(self, starting_population, individual_x, individual_y, mutation_probability):
-        self.population = Population(starting_population, individual_x, individual_y, 500)
-        self.iterations = 1000
+    def __init__(self, starting_population, individual_x, individual_y, mutation_probability, iterations):
+        self.population = Population(starting_population, individual_x, individual_y, starting_population)
+        self.iterations = iterations
         self.individual_x = individual_x
         self.individual_y = individual_y
         self.individuals_for_selection = starting_population
         self.mutation_probability = mutation_probability
 
     def run(self):
+        previous_evaluation = 0
         for i in range(self.iterations):
-            if (i / 10).is_integer():
-                print(i, len(self.population.pool))
+            current_evaluation = self.population.evaluate()
+            if previous_evaluation != current_evaluation:
+                previous_evaluation = current_evaluation
+                print(current_evaluation)
             self.iteration()
             self.population.trim()
         print(self.population.evaluate())
+        self.population.best().dbg_fancy()
 
     def iteration(self):
         selection = self.population.selection(len(self.population.pool))
@@ -55,6 +59,13 @@ class Population:
             if i.fitness() > result:
                 result = i.fitness()
         return result
+
+    def best(self):
+        best_coefficient = self.evaluate()
+        for i in self.pool:
+            if i.fitness() == best_coefficient:
+                return i
+        return None
 
     def trim(self):
         if len(self.pool) <= self.max_size:
@@ -176,7 +187,7 @@ class Individual:
 
 
 def main():
-    problem = Algorithm(100, 8, 8, 0.01)
+    problem = Algorithm(100, 8, 8, 0.01, 10000)
     problem.run()
 
 

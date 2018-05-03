@@ -1,0 +1,9 @@
+#mainbody {
+	display: block;
+	background-color:#dadee0;
+}
+.firstdiv {
+	max-width: 500px;
+    height: 100px;
+    background: red;
+}

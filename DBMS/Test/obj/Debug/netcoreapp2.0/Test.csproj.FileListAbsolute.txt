@@ -1,0 +1,10 @@
+/home/potra/Desktop/School/School/DBMS/Test/bin/Debug/netcoreapp2.0/Test.deps.json
+/home/potra/Desktop/School/School/DBMS/Test/bin/Debug/netcoreapp2.0/Test.runtimeconfig.json
+/home/potra/Desktop/School/School/DBMS/Test/bin/Debug/netcoreapp2.0/Test.runtimeconfig.dev.json
+/home/potra/Desktop/School/School/DBMS/Test/bin/Debug/netcoreapp2.0/Test.dll
+/home/potra/Desktop/School/School/DBMS/Test/bin/Debug/netcoreapp2.0/Test.pdb
+/home/potra/Desktop/School/School/DBMS/Test/obj/Debug/netcoreapp2.0/Test.csproj.CoreCompileInputs.cache
+/home/potra/Desktop/School/School/DBMS/Test/obj/Debug/netcoreapp2.0/Test.AssemblyInfoInputs.cache
+/home/potra/Desktop/School/School/DBMS/Test/obj/Debug/netcoreapp2.0/Test.AssemblyInfo.cs
+/home/potra/Desktop/School/School/DBMS/Test/obj/Debug/netcoreapp2.0/Test.dll
+/home/potra/Desktop/School/School/DBMS/Test/obj/Debug/netcoreapp2.0/Test.pdb
