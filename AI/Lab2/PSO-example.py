@@ -1,199 +1,127 @@
-# -*- coding: utf-8 -*-
 """
-Determine the minimum for Schaffer's function of two variables
-on [-10,10]x[-10,10] using a PSO (particle swarm optimisation) algorithm.
-
-see for Schaffer's function:
-    http://deap.gel.ulaval.ca/doc/0.8/api/benchmarks.html
-
-
-The result for this problem should be: x=(0,0) with f(x)=0
-
+Sa se plimbe un cal pe o tabla de sah de dimensiune n x m, odata pe fiecare casuta.
 """
 
-from random import randint, random
-from operator import add
-from math import sin, pow
+from random import *
 
 
-class particle:
-    """ The class that implements a particle """
-
-    def __init__(self, l, vmin, vmax):
-        """ constructor
-
-        input--
-          l: the number of components
-          vmin: the minimum possible value
-          vmax: the maximum possible value
+class ant:
+    def __init__(self, n, m):
+        # constructor pentru clasa ant
+        self.size = n * m
+        self.path = [randint(0, self.size - 1)]
         """
-        self._pozition = [(random() * (vmax - vmin) + vmin) for x in range(l)]
-        self.evaluate()
-        self.velocity = [0 for i in range(l)]
-
-        # the memory of that particle
-        self._bestPozition = self._pozition.copy()
-        self._bestFitness = self._fitness
-
-    def fit(self, pozition):
+        drumul construit de furnica initializat aleator pe prima pozitie
+        drumul este o permutare de self.size elemente, fiecare numar
+        reprezentand o casuta a tablei de sah:
+        pt n=4, m=6
+        0  este casuta 0, 0
+        1  este casuta 0, 1
+        ...
+        5  este casuta 0, 5
+        6  este casuta 1, 0
+        ...
+        23 este casuta 3, 5 (ultima din cele 24 de casute)
         """
-        Determine the fitness of a particle. Lower is better.(min problem)
-        For this problem we have the Schaffer's function
+        self.n = n
+        self.m = m
 
-        input --
-            pozition: the pozition of the particle we wish to evaluate
-        """
-        n = len(pozition)
-        f = 0
-        for i in range(n - 1):
-            y = pow(pozition[i], 2) + pow(pozition[i + 1], 2)
-            f = f + pow(y, 0.25) * (pow(sin(50 * pow(y, 0.1)), 2) + 1)
-        return f
+    def nextMoves(self, a):
+        # returneaza o lista de posibile mutari corecte de la pozitia a
+        new = []
+        x = int(a / self.m)
+        y = a - int(a / self.m) * self.m
+        variatiaX = [2, 2, -1, -1, -2, -2, 1, 1]
+        variatiaY = [-1, 1, 2, -2, 1, -1, 2, -2]
+        for i in range(8):
+            nextX = x + variatiaX[i]
+            nextY = y + variatiaY[i]
+            if (nextX >= 0) and (nextX < self.n) and (nextY >= 0) and (nextY < self.m):
+                b = nextX * self.m + nextY
+                if b not in self.path:
+                    new.append(b)
+        return new.copy()
 
-    def evaluate(self):
-        """ evaluates the particle """
-        self._fitness = self.fit(self._pozition)
+    def distMove(self, a):
+        # returneaza o distanta empirica data de numarul de posibile mutari corecte
+        # dupa ce se adauga pasul a in path
+        dummy = ant(self.n, self.m)
+        dummy.path = self.path.copy()
+        dummy.path.append(a)
+        return 9 - len(dummy.nextMoves(a))
 
-    @property
-    def pozition(self):
-        """ getter for pozition """
-        return self._pozition
+    def addMove(self, q0, trace, alpha, beta):
+        # adauga o noua pozitie in solutia furnicii daca este posibil
+        p = [0 for _ in range(self.size)]
+        # pozitiile ce nu sunt valide vor fi marcate cu zero
+        nextSteps = self.nextMoves(self.path[len(self.path) - 1]).copy()
+        # determina urmatoarele pozitii valide in nextSteps
+        # daca nu avem astfel de pozitii iesim
+        if len(nextSteps) == 0:
+            return False
+        # punem pe pozitiile valide valoarea distantei empirice
+        for i in nextSteps:
+            p[i] = self.distMove(i)
+        # calculam produsul trace^alpha si vizibilitate^beta
+        p = [(p[i] ** beta) * (trace[self.path[-1]][i] ** alpha) for i in range(len(p))]
+        if random() < q0:
+            # adaugam cel mai bun dintre mutarile posibile
+            p = [[i, p[i]] for i in range(len(p))]
+            p = max(p, key=lambda a: a[1])
+            self.path.append(p[0])
+        else:
+            # adaugam cu o probabilitate un drum posibil (ruleta)
+            s = sum(p)
+            if s == 0:
+                return choice(nextSteps)
+            p = [p[i] / s for i in range(len(p))]
+            p = [sum(p[0:i + 1]) for i in range(len(p))]
+            r = random()
+            i = 0
+            while r > p[i]:
+                i = i + 1
+            self.path.append(i)
+        return True
 
-    @property
     def fitness(self):
-        """ getter for fitness """
-        return self._fitness
-
-    @property
-    def bestPozition(self):
-        """ getter for best pozition """
-        return self._bestPozition
-
-    @property
-    def bestFitness(self):
-        """getter for best fitness """
-        return self._bestFitness
-
-    @pozition.setter
-    def pozition(self, newPozition):
-        self._pozition = newPozition.copy()
-        # automatic evaluation of particle's fitness
-        self.evaluate()
-        # automatic update of particle's memory
-        if (self._fitness < self._bestFitness):
-            self._bestPozition = self._pozition
-            self._bestFitness = self._fitness
+        # un drum e cu atat mai bun cu cat este mai lung
+        # problema de minimizare, drumul maxim e n * m
+        return self.size - len(self.path) + 2
 
 
-def population(count, l, vmin, vmax):
-    """
-    Create a number of particles (i.e. a population).
-
-    input --
-       count: the number of individuals in the population
-       l: the number of values in the pozition of a particle
-       vmin: the minimum possible value
-       vmax: the maximum possible value
-
-    output --
-       the random created population of count particles
-    """
-    return [particle(l, vmin, vmax) for x in range(count)]
-
-
-def selectNeighbors(pop, nSize):
-    """  the selection of the neighbours for each particle
-
-    input --
-       pop: current population
-       nSize: the number of neighbours of a particle
-
-    output--
-       ln: list of neighblours for each particle
-    """
-
-    if (nSize > len(pop)):
-        nSize = len(pop)
-
-    # Attention if nSize==len(pop) this selection is not a propper one
-    # use a different approach (like surfle to form a permutation)
-    neighbors = []
-    for i in range(len(pop)):
-        localNeighbor = []
-        for j in range(nSize):
-            x = randint(0, len(pop) - 1)
-            while (x in localNeighbor):
-                x = randint(0, len(pop) - 1)
-            localNeighbor.append(x)
-        neighbors.append(localNeighbor.copy())
-    return neighbors
+def epoca(noAnts, n, m, trace, alpha, beta, q0, rho):
+    antSet = [ant(n, m) for _ in range(noAnts)]
+    for i in range(n * m):
+        # numarul maxim de iteratii intr-o epoca este lungimea solutiei
+        for x in antSet:
+            x.addMove(q0, trace, alpha, beta)
+    # actualizam trace-ul cu feromonii lasati de toate furnicile
+    dTrace = [1.0 / antSet[i].fitness() for i in range(len(antSet))]
+    for i in range(n * m):
+        for j in range(n * m):
+            trace[i][j] = (1 - rho) * trace[i][j]
+    for i in range(len(antSet)):
+        for j in range(len(antSet[i].path) - 1):
+            x = antSet[i].path[j]
+            y = antSet[i].path[j + 1]
+            trace[x][y] = trace[x][y] + dTrace[i]
+    # return best ant path
+    f = [[antSet[i].fitness(), i] for i in range(len(antSet))]
+    f = max(f)
+    return antSet[f[1]].path
 
 
-def iteration(pop, neighbors, c1, c2, w):
-    """
-    an iteration
-
-    pop: the current state of the population
-
-
-    for each particle we update the velocity and the position
-    according to the particle's memory and the best neighbor's pozition
-    """
-    bestNeighbors = []
-    # determine the best neighbor for each particle
-    for i in range(len(pop)):
-        bestNeighbors.append(neighbors[i][0])
-        for j in range(1, len(neighbors[i])):
-            if (pop[bestNeighbors[i]].fitness > pop[neighbors[i][j]].fitness):
-                bestNeighbors[i] = neighbors[i][j]
-
-    # update the velocity for each particle
-    for i in range(len(pop)):
-        for j in range(len(pop[0].velocity)):
-            newVelocity = w * pop[i].velocity[j]
-            newVelocity = newVelocity + c1 * random() * (pop[bestNeighbors[i]].pozition[j] - pop[i].pozition[j])
-            newVelocity = newVelocity + c2 * random() * (pop[i].bestPozition[j] - pop[i].pozition[j])
-            pop[i].velocity[j] = newVelocity
-
-    # update the pozition for each particle
-    for i in range(len(pop)):
-        newPozition = []
-        for j in range(len(pop[0].velocity)):
-            newPozition.append(pop[i].pozition[j] + pop[i].velocity[j])
-        pop[i].pozition = newPozition
-    return pop
+def main(n=8, m=8, noEpoch=100, noAnts=3, alpha=1.9, beta=0.9, rho=0.05, q0=0.5):
+    bestSol = []
+    trace = [[1 for _ in range(n * m)] for _ in range(n * m)]
+    print("Programul ruleaza! Dureaza ceva timp pana va termina!")
+    for i in range(noEpoch):
+        sol = epoca(noAnts, n, m, trace, alpha, beta, q0, rho).copy()
+        if len(sol) > len(bestSol):
+            bestSol = sol.copy()
+    print("lungimea celei mai bune solutii depistate la aceasta rulare:", len(bestSol))
+    print("Drumul detectat este:", bestSol)
 
 
-def main(noIteratii=100):
-    # PARAMETERS:
-
-    # number of particles
-    noParticles = 100
-    # individual size
-    dimParticle = 2
-    # the boundries of the search interval
-    vmin = -100
-    vmax = -10
-    # specific parameters for PSO
-    w = 1.0
-    c1 = 1.
-    c2 = 2.5
-    sizeOfNeighborhood = 20
-    P = population(noParticles, dimParticle, vmin, vmax)
-
-    # we establish the particles' neighbors
-    neighborhoods = selectNeighbors(P, sizeOfNeighborhood)
-
-    for i in range(noIteratii):
-        P = iteration(P, neighborhoods, c1, c2, w / (i + 1))
-
-    # print the best individual
-    best = 0
-    for i in range(1, len(P)):
-        if (P[i].fitness < P[best].fitness):
-            best = i
-
-    fitnessOptim = P[best].fitness
-    individualOptim = P[best].pozition
-    print('Result: The detectet minimum point is (%3.2f %3.2f) \n with function\'s value %3.2f' % \
-          (individualOptim[0], individualOptim[1], fitnessOptim))
+if __name__ == '__main__':
+    main()
