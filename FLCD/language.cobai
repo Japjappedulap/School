@@ -1,0 +1,6 @@
+
+number number1 = 2;
+number number_2 = 22222222222222;
+number number_three = 1.111;
+string string1 = 'abc';
+string string2 = 'abc123.12m8!@d12!@%$@!';
