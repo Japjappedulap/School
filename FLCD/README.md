@@ -38,10 +38,5 @@
 	    3. `array` - an array of objects
 	    4. `dictionary` - a dictionary mapping an object to another object
 	    
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
+3. ### Syntax
+    
