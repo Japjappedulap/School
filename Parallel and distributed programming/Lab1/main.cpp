@@ -9,9 +9,9 @@
 #include "utils.h"
 #include "Bank.h"
 
-const int NumberAccounts = 10000;
-const int NumberThreads = 2000;
-const int TransactionsPerThread = 1000;
+const int NumberAccounts = 10;
+const int NumberThreads = 200;
+const int TransactionsPerThread = 100;
 
 
 int main() {

@@ -8,6 +8,8 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include <queue>
+#include <mutex>
 
 class Matrix {
 private:
@@ -41,6 +43,12 @@ public:
     Matrix operator*(const Matrix &);
 
     void randomize(int, int);
+
+    static void makeSum(int, int, const Matrix*, const Matrix*, Matrix*);
+    static void makeProd(int, int, const Matrix*, const Matrix*, Matrix*);
+
+    static void SumExecutor(const Matrix* initial, const Matrix* other, Matrix* result, std::queue<int> *Q);
+    static void ProdExecutor(const Matrix* initial, const Matrix* other, Matrix* result, std::queue<int> *Q);
 };
 
 #endif //LAB2_MATRIX_H

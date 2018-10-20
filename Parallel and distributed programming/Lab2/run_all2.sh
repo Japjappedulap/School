@@ -5,9 +5,9 @@ for file in `find . -name "*.input"`
 do
 	fileName=`basename $file .input`
 	echo $fileName
-	time ./cmake-build-debug/Lab2qsum < $file > ./outFiles/checking.out
+	time ./cmake-build-debug/Lab2thrprod < $file > ./outFiles/checking.out
 	
-	diff -q ./outFiles/checking.out ./okFiles/$fileName.sum.ok 1>/dev/null
+	diff -q ./outFiles/checking.out ./okFiles/$fileName.prod.ok 1>/dev/null
 	if [[ $? == "0" ]]
 	then
 	  	echo "OK"

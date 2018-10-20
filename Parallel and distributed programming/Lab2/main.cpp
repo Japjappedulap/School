@@ -2,8 +2,6 @@
 #include "utils.h"
 #include "Matrix.h"
 
-#define USE_THREADS
-
 
 int main() {
     Matrix matrix1;
