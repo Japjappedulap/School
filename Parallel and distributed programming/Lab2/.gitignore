@@ -2,7 +2,8 @@ cmake-build-debug/
 
 .idea
 
-CMake*
+
 outFiles
 testFiles
 okFiles
+/CMakeFiles/
