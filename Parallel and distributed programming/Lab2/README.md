@@ -18,8 +18,8 @@ Divide the task between a configured number of threads (going from 1 to the numb
 | 200   |1000      |1000         | 1,000,000 | 2,000,000,000 |      `0m0,427s`  |`0m2,749s` |`0m0,752s`| `0m17,317s`| `0m8,039s` | `0m4,890s` |
 | 200    |5000       |5000  | 1,000,000 | 2,000,000,000    |        `0m10,651s`  |`1m8,377s` |`0m17,787s` | `46m3,076s` | `11m35,040s` | `10m38,219s` |
 
-Time(1) = time using a single thread - classic approach
+* Time(1) = time using a single thread - classic approach
 
-Time(2) = time using a thread pool - boost library
+* Time(2) = time using a thread pool - boost library
 
-Time(3) = time using a queue
+* Time(3) = time using a queue
