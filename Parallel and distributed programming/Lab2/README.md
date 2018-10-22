@@ -1,4 +1,4 @@
-# Lab2
+# Lab2 & Lab3
 
 ### Task: Matrix multiplication and matrix addition
 
@@ -20,6 +20,6 @@ Divide the task between a configured number of threads (going from 1 to the numb
 
 * Time(1) = time using a single thread - classic approach
 
-* Time(2) = time using a thread pool - boost library
+* Time(2) = time using a thread pool - boost library (Lab3)
 
 * Time(3) = time using threads and a queue of *tasks*
