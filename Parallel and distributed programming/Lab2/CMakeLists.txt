@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(Lab2)
 
 set(CMAKE_CXX_STANDARD 14)
-
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 
 message(STATUS "start running cmake...")
 
@@ -18,10 +18,10 @@ if(Boost_FOUND)
 
 endif()
 
-add_executable(Lab2qprod main.cpp utils.cpp Matrix.cpp)
+add_executable(Lab2asyncprod main.cpp utils.cpp Matrix.cpp)
 
 if(Boost_FOUND)
 
-    target_link_libraries(Lab2qprod ${Boost_LIBRARIES})
+    target_link_libraries(Lab2asyncprod ${Boost_LIBRARIES})
 
 endif()

@@ -12,9 +12,11 @@
 #include <boost/thread/thread.hpp>
 #include <boost/lockfree/queue.hpp>
 #include <queue>
+#include <future>
 
 //#define USE_THREAD_POOL
-#define USE_QUEUE
+//#define USE_QUEUE
+#define USE_ASYNC
 const int Threads = 200;
 const int gap = 10000;
 
@@ -140,6 +142,22 @@ void Matrix::ProdExecutor(const Matrix* initial, const Matrix* other, Matrix* re
     }
 }
 
+void asyncSum(int line, const Matrix *initial, const Matrix *other, Matrix *result) {
+    for (int j = 0; j < initial->getM(); ++j) {
+        result->setData(line, j, initial->getData(line, j) + other->getData(line, j));
+
+    }
+}
+
+void asyncProd(int line, const Matrix *initial, const Matrix *other, Matrix *result) {
+    for (int j = 0; j < initial->getM(); ++j) {
+        long long accumulated = 0;
+        int M = initial->getM();
+        for (int k = 0; k < M; ++k)
+            accumulated += (initial->getData(line, k) * other->getData(k, j));
+        result->setData(line, j, accumulated);
+    }
+}
 
 Matrix Matrix::operator+(const Matrix &other) {
     if (other.getN() != this->N || other.getM() != this->M)
@@ -173,6 +191,17 @@ Matrix Matrix::operator+(const Matrix &other) {
     for (int i = 0; i < Threads; ++i)
         threads.create_thread(boost::bind(Matrix::SumExecutor, this, &other, &result, &Q));
     threads.join_all();
+    return result;
+    #endif
+    #ifdef USE_ASYNC
+    std::vector<std::future<void> > futures;
+    for (int i = 0; i < N; ++i) {
+        futures.push_back(std::async(asyncSum, i, this, &other, &result));
+    }
+    for (auto& future : futures) {
+        future.wait();
+    }
+
     return result;
     #endif
     // this works correctly
@@ -225,6 +254,17 @@ Matrix Matrix::operator*(const Matrix &other) {
     threads.join_all();
     return result;
     #endif
+    #ifdef USE_ASYNC
+    std::vector<std::future<void> > futures;
+    for (int i = 0; i < N; ++i) {
+        futures.push_back(std::async(asyncProd, i, this, &other, &result));
+    }
+    for (auto& future : futures) {
+        future.wait();
+    }
+
+    return result;
+    #endif
     // this works correctly
     for (int i = 0; i < N; ++i)
         for (int j = 0; j < P; ++j) {
@@ -256,4 +296,5 @@ void Matrix::makeProd(int i, int j, const Matrix* initial, const Matrix *other, 
         accumulated += (initial->data[i][k] * other->getData(k, j));
     result->setData(i, j, accumulated);
 }
+
 
