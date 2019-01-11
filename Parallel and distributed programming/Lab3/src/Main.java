@@ -95,8 +95,8 @@ public class Main {
     }
 
     private static void TestCaseSum() {
-        int[] N = {3000, 4000, 5000};
-        int[] M = {3000, 4000, 5000};
+        int[] N = {30, 40, 50};
+        int[] M = {30, 40, 50};
         int[] ThrNumber = {1, 8, 200};
         for (int i = 0; i < 3; ++i) {
             System.err.println("Begin test with preset: N = " + N[i] + " M = " + M[i] + " Threads = " + ThrNumber[i]);
