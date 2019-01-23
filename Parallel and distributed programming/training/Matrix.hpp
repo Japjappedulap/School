@@ -62,7 +62,7 @@ public:
     }
 
     Matrix okProduct(const Matrix &other) {
-        Matrix result(N, true);
+        Matrix result(N, false);
         for (int i = 0; i < N; ++i)
             for (int j = 0; j < N; ++j) {
                 int accumulated = 0;
@@ -77,7 +77,7 @@ public:
      * Matrix multiplication on threads, using futures cuz it's shorter code
      */
     Matrix operator*(const Matrix &other) const {
-        Matrix result(N, true);
+        Matrix result(N, false);
         std::vector<std::future<void> > futures;
         futures.reserve(static_cast<unsigned long>(N));
         for (int i = 0; i < N; ++i) {

@@ -43,6 +43,24 @@ void ThreadedPermutations(const vector<int> &current_permutation) {
     }
 }
 
+
+/**
+ * Calculates all the permutations of N elements
+ */
+void permutations(const vector<int> &current_permutation) {
+    if (current_permutation.size() == N && predicate(current_permutation))
+        count++;
+    for (int i = 1; i <= N; ++i) {
+        if (!alreadyIn(current_permutation, i)) {
+            // should create a new thread and add the value i
+            vector<int> new_permutation(current_permutation);
+            new_permutation.push_back(i);
+            ThreadedPermutations(new_permutation);
+        }
+    }
+}
+
+
 int main() {
     vector<int> x;
     ThreadedPermutations(x);

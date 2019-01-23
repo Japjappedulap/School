@@ -5,90 +5,61 @@
 #include <atomic>
 #include <future>
 #include "util.hpp"
+#include "Matrix.hpp"
 using namespace std;
 
-
-class Matrix {
+class BigInt{
 public:
-    vector<vector<int> > data;
-    int N;
+    vector<int> content;
 
-    Matrix(int N, bool randomly_generated) {
-        this->data = std::vector<std::vector<int>>(static_cast<unsigned long>(N), std::vector<int>(N, 0));
-        this->N = N;
-        if (randomly_generated) {
-            for (auto &i : this->data) {
-                for (auto &j : i) {
-                    j = generateRange(1, 4);
-                }
-            }
+    BigInt() {}
+
+    explicit BigInt(const string& number) {
+        for (auto rit = number.rbegin(); rit != number.rend(); ++rit) {
+            content.push_back(*rit - '0');
         }
     }
 
-    int get(int i, int j) const {
-        return this->data[i][j];
-    }
-
-    void set(int i, int j, int val) {
-        this->data[i][j] = val;
-    }
-
-    Matrix okProduct(const Matrix &other) {
-        Matrix result(N, true);
-        for (int i = 0; i < N; ++i)
-            for (int j = 0; j < N; ++j) {
-                int accumulated = 0;
-                for (int k = 0; k < N; ++k)
-                    accumulated += (this->data[i][k] * other.get(k, j));
-                result.set(i, j, accumulated);
+    BigInt operator*(const BigInt& other) {
+        BigInt result;
+        for (int index = 0, transport = 0; index < max(this->content.size(), other.content.size()) || transport; transport /= 10, ++index) {
+            result.content.push_back(0);
+            result.content[index] += (transport % 10);
+            for (int i = 0; i <= index && i < this->content.size() && index-i < other.content.size(); ++i) {
+                int temp = this->content[i] * other.content[index-i];
+                transport += temp / 10;
+                result.content[index] += temp % 10;
             }
-        return result;
-    }
-
-
-    Matrix operator*(const Matrix &other) {
-        Matrix result(N, true);
-        std::vector<std::future<void> > futures;
-        futures.reserve(static_cast<unsigned long>(N));
-        for (int i = 0; i < N; ++i) {
-            futures.push_back(std::async(asyncProd, i, this, &other, &result));
-        }
-        for (auto& future : futures) {
-            future.wait();
         }
         return result;
     }
-
-
-    static void asyncProd(int line, const Matrix *initial, const Matrix *other, Matrix *result) {
-        for (int j = 0; j < initial->N; ++j) {
-            int accumulated = 0;
-            int M = initial->N;
-            for (int k = 0; k < M; ++k)
-                accumulated += (initial->get(line, k) * other->get(k, j));
-            result->set(line, j, accumulated);
-        }
-    }
-
 
     void pp() {
-        for (const auto &i : data) {
-            for (const auto &j : i)
-                std::cout << j << ' ';
-            std::cout << '\n';
+        for (auto rit = content.rbegin(); rit != content.rend(); ++rit) {
+            cout << *rit;
         }
+        cout << '\n';
     }
 };
 
-
-
-
 int main() {
-    Matrix x(2, true), y(2, true);
-    Matrix r1 = x.okProduct(y);
-    Matrix r2 = x * y;
-    r1.pp();
-    r2.pp();
-
+    BigInt x("10");
+    BigInt y("10");
+    BigInt z = x * y;
+    z.pp();
     return 0;
 }
+
+
+
+
+//
+//     1234 *
+//     5678
+//-----------
+//     9872 +
+//    8638-
+//   7404--
+//  6170---
+//-----------
+//  7006652

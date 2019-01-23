@@ -26,6 +26,7 @@ void Subset(const vector<int>& given_set, const int& k, const vector<int> &curre
     if (current_set.size() == k && predicate(current_set)) {
         count++;
         printVector(current_set);
+        return;
     }
     vector<thread> threads;
     for (const auto& i : given_set) {
@@ -34,7 +35,7 @@ void Subset(const vector<int>& given_set, const int& k, const vector<int> &curre
             next_set.push_back(i);
             threads.emplace_back([given_set, k, next_set](){
                 Subset(given_set, k, next_set);
-                });
+            });
         }
     }
     for (auto& i : threads) {
