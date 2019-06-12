@@ -8,7 +8,7 @@
 
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'tuzdedoba');
+define('DB_PASSWORD', 'secretSuperDiscret');
 define('DB_DATABASE', 'Exam');
 
 $GLOBALS['DB_SERVER'] = 'localhost';
