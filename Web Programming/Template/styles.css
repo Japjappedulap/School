@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: larger;
+}
+
+.column {
+    float: left;
+    width: 33.333333%;
+    height: 2000px;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.dot {
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    width: 20%;
+    padding-top: 20%;
+    background-color: #111111;
+    border-radius: 50%;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .drop-down-menu {
+            position: relative;
+            display: inline-block;
+            border: 2px solid black;
+            min-width: 200px;
+        }
+
+        .drop-down-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .drop-down-menu:hover .drop-down-content {
+            display: block;
+        }
+
+        .drop-down-menu:hover {
+            background-color: #acacac;
+        }
+
+        .submenu {
+            background-color: #f8f8f8;
+        }
+
+        .submenu:hover {
+            background-color: #acacac;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="drop-down-menu">
+    <span>Big menu1</span>
+    <div class="drop-down-content">
+        <div class="submenu">Submenu 1</div>
+        <div class="submenu">Submenu 2</div>
+    </div>
+</div>
+<div class="drop-down-menu">
+    <span>Big menu2</span>
+    <div class="drop-down-content">
+        <div class="submenu">Submenu 1</div>
+        <div class="submenu">Submenu 2</div>
+
+    </div>
+</div>
+<div class="drop-down-menu">
+    <span>Big menu3</span>
+    <div class="drop-down-content">
+        <div class="submenu">Submenu 1</div>
+        <div class="submenu">Submenu 2</div>
+    </div>
+</div>
+
+</body>
+</html>
